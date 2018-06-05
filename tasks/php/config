@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Get Site Config
+|--------------------------------------------------------------------------
+|
+| Get the environment-specific site configuration and output it as JSON.
+|
+*/
+
+$env = getopt('e:');
+$config_dev = require_once('config.php');
+
+if($env) {
+
+    $file = 'config.' . $env['e'] . '.php';
+
+    if(file_exists($file)) {
+
+        $config_env = require_once($file);
+        $out = array_merge($config_dev, $config_env);
+
+        print json_encode($out);
+        exit();
+
+    }
+
+}
+
+print json_encode($config_dev);
+
+exit();

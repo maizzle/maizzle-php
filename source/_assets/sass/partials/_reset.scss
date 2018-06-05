@@ -1,0 +1,15 @@
+@screen all {
+  img {max-width: 100%;}
+}
+
+body {
+  @apply .m-0 .p-0 .w-full;
+  box-sizing: border-box;
+  word-break: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  border: 0;
+  @apply .leading-full .align-middle;
+}
