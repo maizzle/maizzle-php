@@ -1,4 +1,4 @@
-let fs = require('fs-extra');
+let fs = require('fs');
 let glob = require('glob-all');
 let inlineCSS = require('juice');
 let cheerio = require('cheerio');
@@ -18,7 +18,7 @@ module.exports.processEmails = (config, build_path, env) => {
     let html = fs.readFileSync(file, 'utf8');
 
     if (env !== 'local') {
-      html = inlineCSS(html, {removeStyleTags: env == 'local' ? false : true});
+      html = inlineCSS(html, {removeStyleTags: true});
     }
 
     let $ = cheerio.load(html, {decodeEntities: false});

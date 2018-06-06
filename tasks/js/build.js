@@ -2,7 +2,7 @@ let argv = require('yargs').argv;
 let bin = require('./bin');
 let command = require('node-cmd');
 
-let fs = require('fs-extra');
+let fs = require('fs');
 let mqpacker = require('css-mqpacker');
 let execSync = require('child_process').execSync;
 
