@@ -35,7 +35,7 @@ module.exports = {
         command.get(bin.path() + ' build ' + prettyURLs + env, (error, stdout, stderr) => {
             console.log(error ? stderr : stdout);
 
-            AfterJigsaw.processEmails(config, build_path);
+            AfterJigsaw.processEmails(config, build_path, env);
 
             if (browserSyncInstance) {
                 browserSyncInstance.reload();

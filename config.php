@@ -31,9 +31,12 @@ return [
     | Layout          http://jigsaw.tighten.co/docs/blade-templates-and-partials/
     |-----------------------------------------------------------------------------
     |
-    | Define a master layout that all templates will use by default.
-    | Maizzle includes one specifically built for HTML email,
-    | but you can override it at a template level.
+    | Define a master layout that all templates will extend by default.
+    |
+    | Maizzle comes with a default layout that sets various tags to
+    | use settings from your config, but you can of course create
+    | your own layouts and extend them at a template level,
+    | with front matter.
     |
     */
     'extends' => '_layouts.master',
@@ -104,20 +107,35 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Minification
+    | Output transformations
     |-----------------------------------------------------------------------------
     |
-    | Define if and how Maizzle should minify the output files. By default, files
-    | are never minified in development, but you can change that here.
+    | This is where you can define various transformations that will be applied
+    | to the output files. By default, to speed up development, Maizzle
+    | disables them for local development. They are, however, enabled
+    | for staging and production builds.
     |
-    | Note: some minifier options are not exposed here. If you know what you're
-    | doing, you can change them in tasks/build.js.
+    | Don't let the output file size scare you when working locally. Having
+    | transformations disabled, you can reference any TailwindCSS class
+    | when debugging in-browser, and rapidly prototype your emails.
+    |
+    | Some of the advanced minifier options are not exposed here. If you
+    | know what you're doing, you can change them in tasks/build.js.
     |
     */
 
-    'minify' => [
-        'html' => false,
-        'css' => false,
+    'transforms' => [
+        'cleanup' => [
+            'removeUnusedCss' => false,
+            'removeTableWidthCss' => false,
+            'preferBgColorAttribute' => false,
+        ],
+        'prettify' => false,
+        'minify' => [
+            'minifyHtml' => false,
+            'minifyCss' => false,
+            'maxLineLength' => 500,
+        ],
     ],
 
     /*
@@ -125,7 +143,7 @@ return [
     | Helpers  http://jigsaw.tighten.co/docs/collections-variables-and-functions/
     |-----------------------------------------------------------------------------
     |
-    | Functions used by Maizzle.
+    | Jigsaw config functions used by Maizzle in the build process.
     |
     */
 
@@ -149,6 +167,6 @@ return [
     'production' => false,
     'build' => [
         'source' => 'source',
-        'destination' => 'build_local/emails',
+        'destination' => 'build_local',
     ],
 ];

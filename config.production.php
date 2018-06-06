@@ -14,24 +14,43 @@
 
 return [
 
-    'minify' => [
-        'html' => true,
-        'css' => true,
-    ],
+  /*
+  |-------------------------------------------------------------------------------
+  | Output transformations
+  |-------------------------------------------------------------------------------
+  |
+  | These settings are tailored for production - this is what controls
+  | how the HTML you'll use in your campaigns is formatted.
+  |
+  */
 
-    /*
-    |-----------------------------------------------------------------------------
-    | Jigsaw build defaults
-    |-----------------------------------------------------------------------------
-    |
-    | Leave these alone unless you really know what you're doing.
-    |
-    */
+  'transforms' => [
+      'cleanup' => [
+          'removeUnusedCss' => true,
+          'removeTableWidthCss' => true,
+          'preferBgColorAttribute' => true,
+      ],
+      'prettify' => false,
+      'minify' => [
+          'minifyHtml' => true,
+          'minifyCss' => true,
+          'maxLineLength' => 500,
+      ],
+  ],
 
-    'baseUrl' => '',
-    'production' => true,
-    'build' => [
-        'source' => 'source',
-        'destination' => 'build_production/dist',
-    ],
+  /*
+  |-----------------------------------------------------------------------------
+  | Jigsaw build defaults
+  |-----------------------------------------------------------------------------
+  |
+  | Leave these alone unless you really know what you're doing.
+  |
+  */
+
+  'baseUrl' => '',
+  'production' => true,
+  'build' => [
+      'source' => 'source',
+      'destination' => 'build_production',
+  ],
 ];
