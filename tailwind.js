@@ -229,6 +229,7 @@ module.exports = {
   */
 
   textSizes: {
+    '0': '0',
     'xs': '12px',
     'sm': '14px',
     'base': '16px',
@@ -281,7 +282,7 @@ module.exports = {
   */
 
   leading: {
-    'none': '0',
+    '0': '0',
     'px': '1px',
     '2': '2px',
     '4': '4px',
@@ -484,7 +485,7 @@ module.exports = {
   */
 
   width: {
-    'none': '0',
+    '0': '0',
     'px': '1px',
     '2': '2px',
     '4': '4px',
@@ -555,7 +556,7 @@ module.exports = {
   */
 
   height: {
-    'none': '0',
+    '0': '0',
     'px': '1px',
     '2': '2px',
     '4': '4px',
@@ -666,7 +667,7 @@ module.exports = {
   */
 
   maxWidth: {
-    'none': '0',
+    '0': '0',
     'px': '1px',
     '2': '2px',
     '4': '4px',
@@ -736,7 +737,7 @@ module.exports = {
   */
 
   maxHeight: {
-    'none': '0',
+    '0': '0',
     'px': '1px',
     '2': '2px',
     '4': '4px',
@@ -1131,8 +1132,8 @@ module.exports = {
     borderRadius: ['responsive', 'hover', 'group-hover'],
     borderStyle: ['responsive', 'hover', 'group-hover'],
     borderWidths: ['responsive', 'hover', 'group-hover'],
-    cursor: [],
-    display: ['responsive'],
+    cursor: false,
+    display: ['responsive', 'group-hover'],
     flexbox: ['responsive'],
     float: ['responsive'],
     fonts: ['responsive'],
@@ -1162,7 +1163,7 @@ module.exports = {
     tracking: ['responsive'],
     userSelect: false,
     verticalAlign: ['responsive'],
-    visibility: ['responsive'],
+    visibility: ['responsive', 'group-hover'],
     whitespace: ['responsive'],
     width: ['responsive'],
     zIndex: ['responsive'],
