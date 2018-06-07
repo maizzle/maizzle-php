@@ -23,7 +23,7 @@ return [
   | Output transformations
   |-------------------------------------------------------------------------------
   |
-  | These settings are tailored for email render testing and debugging.
+  | These settings are tailored to email render testing and debugging.
   | Output is similar to production, but with pretty indented code
   | and no minification.
   |
@@ -35,12 +35,12 @@ return [
           'removeTableWidthCss' => true,
           'preferBgColorAttribute' => true,
       ],
-      'minify' => [
-          'minifyHtml' => false,
-          'minifyCss' => false,
-          'maxLineLength' => 500,
-      ],
       'prettify' => true,
+      'minify' => [
+          'enabled' => true,
+          'minifyCSS' => true,
+          'collapseWhitespace' => false,
+      ],
   ],
 
   /*

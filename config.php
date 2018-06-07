@@ -112,15 +112,15 @@ return [
     |
     | This is where you can define various transformations that will be applied
     | to the output files. By default, to speed up development, Maizzle
-    | disables them for local development. They are, however, enabled
-    | for staging and production builds.
+    | disables most of them for local development. They are, however,
+    | enabled for staging and production builds.
     |
     | Don't let the output file size scare you when working locally. Having
     | transformations disabled, you can reference any TailwindCSS class
     | when debugging in-browser, and rapidly prototype your emails.
     |
-    | Some of the advanced minifier options are not exposed here. If you
-    | know what you're doing, you can change them in tasks/build.js.
+    | Some of the advanced minifier options are not exposed here - you
+    | can customise them in tasks/build.js.
     |
     */
 
@@ -132,9 +132,7 @@ return [
         ],
         'prettify' => false,
         'minify' => [
-            'minifyHtml' => false,
-            'minifyCss' => false,
-            'maxLineLength' => 500,
+          'enabled' => false,
         ],
     ],
 

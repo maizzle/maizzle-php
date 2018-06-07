@@ -19,7 +19,7 @@ return [
   | Output transformations
   |-------------------------------------------------------------------------------
   |
-  | These settings are tailored for production - this is what controls
+  | These settings are tailored to production - this is what controls
   | how the HTML you'll use in your campaigns is formatted.
   |
   */
@@ -32,9 +32,11 @@ return [
       ],
       'prettify' => false,
       'minify' => [
-          'minifyHtml' => true,
-          'minifyCss' => true,
+          'enabled' => true,
+          'minifyCSS' => true,
           'maxLineLength' => 500,
+          'collapseWhitespace' => true,
+          'preserveLineBreaks' => false,
       ],
   ],
 
