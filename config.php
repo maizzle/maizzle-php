@@ -4,10 +4,10 @@
 
 Maizzle - Email Development Workflow
 
-A project by Cosmin Popovici (@cossssmin).
+A project by Cosmin Popovici (@cossssmin) and ThemeMountain (@thememountainco).
 
-Welcome to the Maizzle config file. This is where you can customise
-some Maizzle settings for your project.
+Welcome to the Maizzle config file. This is where you can customise some
+Maizzle settings for your project.
 
 View the full documentation at https://docs.maizzle.com.
 
@@ -16,11 +16,8 @@ View the full documentation at https://docs.maizzle.com.
 | The default config              http://jigsaw.tighten.co/docs/site-variables/
 |-------------------------------------------------------------------------------
 |
-| This array contains the default Maizzle config for development. It's used
-| when you do `npm run dev` in the command line.
-|
-| The production config is located in config.production.php, and will be
-| merged on top of this one when doing `npm run production`.
+| This array contains the default Maizzle config for development. This is
+| used when you run the `npm run dev` command.
 |
 */
 
@@ -84,7 +81,7 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Google Fonts               https://docs.thememountain.com/acorn/typography/
+    | Google Fonts                              https://docs.maizzle.com/webfonts
     |-----------------------------------------------------------------------------
     |
     | This is where you can define which Google Fonts Maizzle should import by
@@ -107,7 +104,35 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Output transformations
+    | Screenshots                            https://docs.maizzle.com/screenshots
+    |-----------------------------------------------------------------------------
+    |
+    | This is where you can define which devices Puppeteer should emulate when
+    | using the `screenshots` command in Maizzle. iPad Mini and iPhone 6 are
+    | used by default, but you can choose any of the devices supported by
+    | Puppeteer.
+    |
+    | It is recommended that you use as few devices as possible, as this
+    | process launches Chrome in headless mode and, the more devices
+    | you use, the more time it will take to generate screenshots.
+    |
+    | Note that these only emulate the viewport of a device, they are not
+    | intended for email client render tests.
+    |
+    */
+
+    'screenshots' => [
+        'devices' => [
+            'iPad Mini',
+            'iPhone 6',
+        ],
+        'type' => 'png',
+        'quality' => 100,
+    ],
+
+    /*
+    |-----------------------------------------------------------------------------
+    | Output transformations                https://docs.maizzle.com/transformers
     |-----------------------------------------------------------------------------
     |
     | This is where you can define various transformations that will be applied
@@ -138,7 +163,7 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Helpers  http://jigsaw.tighten.co/docs/collections-variables-and-functions/
+    | Helpers                             https://docs.maizzle.com/jigsaw/helpers
     |-----------------------------------------------------------------------------
     |
     | Jigsaw config functions used by Maizzle in the build process.
