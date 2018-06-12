@@ -18,44 +18,45 @@
 
 return [
 
-  /*
-  |-------------------------------------------------------------------------------
-  | Output transformations
-  |-------------------------------------------------------------------------------
-  |
-  | These settings are tailored to email render testing and debugging.
-  | Output is similar to production, but with pretty indented code
-  | and no minification.
-  |
-  */
+    /*
+    |-------------------------------------------------------------------------------
+    | Output transformations                  https://docs.maizzle.com/transformers
+    |-------------------------------------------------------------------------------
+    |
+    | These settings are tailored to email render testing and debugging.
+    | Output is similar to production, but with pretty indented code
+    | and no minification.
+    |
+    */
 
-  'transforms' => [
-      'cleanup' => [
-          'removeUnusedCss' => true,
-          'removeTableWidthCss' => true,
-          'preferBgColorAttribute' => true,
-      ],
-      'prettify' => true,
-      'minify' => [
-          'enabled' => true,
-          'minifyCSS' => true,
-          'collapseWhitespace' => false,
-      ],
-  ],
+    'transforms' => [
+        'baseImageURL' => '',
+        'cleanup' => [
+            'removeUnusedCss' => true,
+            'removeTableWidthCss' => true,
+            'preferBgColorAttribute' => true,
+        ],
+        'prettify' => true,
+        'minify' => [
+            'enabled' => true,
+            'minifyCSS' => true,
+            'collapseWhitespace' => false,
+        ],
+    ],
 
-  /*
-  |-----------------------------------------------------------------------------
-  | Jigsaw build defaults
-  |-----------------------------------------------------------------------------
-  |
-  | Leave these alone unless you really know what you're doing.
-  |
-  */
+    /*
+    |-----------------------------------------------------------------------------
+    | Jigsaw build defaults
+    |-----------------------------------------------------------------------------
+    |
+    | Leave these alone unless you really know what you're doing.
+    |
+    */
 
-  'baseUrl' => '',
-  'production' => true,
-  'build' => [
-      'source' => 'source',
-      'destination' => 'build_staging',
-  ],
+    'baseUrl' => '',
+    'production' => true,
+    'build' => [
+        'source' => 'source',
+        'destination' => 'build_staging',
+    ],
 ];

@@ -150,6 +150,7 @@ return [
     */
 
     'transforms' => [
+        'baseImageURL' => '',
         'cleanup' => [
             'removeUnusedCss' => false,
             'removeTableWidthCss' => false,

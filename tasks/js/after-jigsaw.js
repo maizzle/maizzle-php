@@ -2,6 +2,7 @@ let fs = require('fs');
 let glob = require('glob-all');
 let inlineCSS = require('juice');
 let cheerio = require('cheerio');
+let isURL = require('is-url');
 let cleanCSS = require('email-remove-unused-css');
 let pretty = require('pretty');
 let minify = require('html-minifier').minify;
@@ -13,6 +14,8 @@ module.exports.processEmails = (config, build_path, env) => {
   let files = glob.sync([build_path+'/**/*.html']);
   let extraCss = fs.readFileSync('source/assets/css/extra.css', 'utf8');
 
+  console.log('Applying transformations to files...');
+
   files.map((file) => {
 
     let html = fs.readFileSync(file, 'utf8');
@@ -22,6 +25,7 @@ module.exports.processEmails = (config, build_path, env) => {
     }
 
     let $ = cheerio.load(html, {decodeEntities: false});
+
     let style = $('style').first();
     style.html(extraCss + style.text());
 
@@ -38,6 +42,12 @@ module.exports.processEmails = (config, build_path, env) => {
     }
 
     html = $.html();
+
+    let baseImageURL = config.transforms.baseImageURL;
+    if (isURL(baseImageURL)) {
+      html = html.replace(/src=("|')(.*?)("|')/gim, 'src="' + baseImageURL + '/$2"')
+                .replace(/url\(("|')(.*?)("|')\)/gim, "url('" + baseImageURL + "/$2')")
+    }
 
     if (config.transforms.cleanup.removeUnusedCss) {
       html = cleanCSS(html).result;
