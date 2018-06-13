@@ -1,14 +1,23 @@
-# Jigsaw + Tailwind CSS Starter Kit
 
-A starter kit for using the [Jigsaw](http://jigsaw.tighten.co/) static site generator with [Tailwind CSS](https://tailwindcss.com/).
+# Maizzle
+
+The HTML email workflow that puts you in control.
 
 ## Features
 
-- Webpack + Laravel Mix build system
-- `tailwind.js` config file in root, customize as needed
-- Uses `mix()` to fetch the CSS asset path and apply versioning
-- Removes unused Tailwind CSS classes with [laravel-mix-purgecss](https://github.com/spatie/laravel-mix-purgecss) (production build only)
-- Basic example of `@apply`ing Tailwind CSS classes. Useful when you write in Markdown and have no control over markup.
+- Build System (Jigsaw static site generator)
+- Centralised Style Guide (TailwindCSS, utility-first CSS framework)
+- BYOHTML - Bring Your Own HTML
+- Rapid Email Prototyping
+- Clean Code Output
+- Screenshots
+- Includes, components
+- BrowserSync, with tunneling
+- CSS inlining, minification, prettify code, various code fixes...
+
+## Documentation
+
+Detailed documentation for Maizzle will be coming soon.
 
 ## Requirements
 
@@ -23,28 +32,26 @@ A starter kit for using the [Jigsaw](http://jigsaw.tighten.co/) static site gene
 2. Navigate to the folder
 
     ```sh
-    cd jigsaw-tailwindcss
+    cd maizzle
     ```
 
 3. Install JS dependencies
     ```sh
     npm install
     ```
-    
+
 4. Install PHP dependencies
     ```sh
     composer install
     ```
-    
+
 5. Run the dev script to build the site
 
     ```sh
     npm run dev
     ```
-    
-To use Browsersync, run the watch script instead: `npm run watch`
 
-**Note**: as mentioned, unused CSS will be removed *only* when you build for production: `npm run production`
+To use Browsersync, run the watch script instead: `npm run watch`
 
 ## What is Jigsaw?
 
