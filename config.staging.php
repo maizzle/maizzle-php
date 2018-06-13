@@ -29,7 +29,11 @@ return [
     |
     */
 
-    'transforms' => [
+    'transformers' => [
+        'inlineCSS' => [
+            'enabled' => true,
+            'removeStyleTags' => true,
+        ],
         'baseImageURL' => '',
         'cleanup' => [
             'removeUnusedCss' => true,

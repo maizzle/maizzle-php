@@ -149,7 +149,11 @@ return [
     |
     */
 
-    'transforms' => [
+    'transformers' => [
+        'inlineCSS' => [
+            'enabled' => false,
+            'removeStyleTags' => false,
+        ],
         'baseImageURL' => '',
         'cleanup' => [
             'removeUnusedCss' => false,
