@@ -219,10 +219,10 @@ module.exports = {
   | you're welcome to use a numeric scale or even something else
   | entirely.
   |
-  | By default Tailwind uses the "rem" unit type for most measurements.
-  | This allows you to set a root font size which all other sizes are
-  | then based on. That said, you are free to use whatever units you
-  | prefer, be it rems, ems, pixels or other.
+  | By default Maizzle uses the "px" unit type for most measurements.
+  | This ensures maximum compatibility with email clients. That
+  | said, you are free to use whatever units you prefer,
+  | be it rems, ems, or other.
   |
   | Class name: .text-{size}
   |
@@ -458,6 +458,21 @@ module.exports = {
   width: {
     '0': '0',
     'px': '1px',
+    '2': '2px',
+    '4': '4px',
+    '8': '8px',
+    '10': '10px',
+    '12': '12px',
+    '14': '14px',
+    '16': '16px',
+    '20': '20px',
+    '24': '24px',
+    '32': '32px',
+    '40': '40px',
+    '48': '48px',
+    '64': '64px',
+    '128': '128px',
+    '256': '256px',
     '600': '600px',
     '1-2': '50%',
     '1-3': '33.33333%',
@@ -505,6 +520,7 @@ module.exports = {
     '48': '48px',
     '64': '64px',
     '128': '128px',
+    '256': '256px',
     'full': '100%',
   },
 
@@ -556,7 +572,7 @@ module.exports = {
   |
   | Here is where you define your maximum width utility sizes. These can
   | be percentage based, pixels, rems, or any other units. By default
-  | we provide a sensible rem based scale and a "full width" size,
+  | we provide a sensible % based scale and a "full width" size,
   | which is basically a reset utility. You can, of course,
   | modify these values as needed.
   |
@@ -567,6 +583,21 @@ module.exports = {
   maxWidth: {
     '0': '0',
     'px': '1px',
+    '2': '2px',
+    '4': '4px',
+    '8': '8px',
+    '10': '10px',
+    '12': '12px',
+    '14': '14px',
+    '16': '16px',
+    '20': '20px',
+    '24': '24px',
+    '32': '32px',
+    '40': '40px',
+    '48': '48px',
+    '64': '64px',
+    '128': '128px',
+    '256': '256px',
     '600': '600px',
     '1-2': '50%',
     '1-3': '33.33333%',
@@ -611,9 +642,8 @@ module.exports = {
   |
   | Here is where you define your padding utility sizes. These can be
   | percentage based, pixels, rems, or any other units. By default we
-  | provide a sensible rem based numeric scale plus a couple other
-  | common use-cases like "1px". You can, of course, modify these
-  | values as needed.
+  | provide a sensible pixel based numeric scale. You can, of
+  | course, modify these values as needed.
   |
   | Class name: .p{side?}-{size}
   |
@@ -636,6 +666,7 @@ module.exports = {
     '48': '48px',
     '64': '64px',
     '128': '128px',
+    '256': '256px',
   },
 
 
@@ -646,9 +677,9 @@ module.exports = {
   |
   | Here is where you define your margin utility sizes. These can be
   | percentage based, pixels, rems, or any other units. By default we
-  | provide a sensible rem based numeric scale plus a couple other
-  | common use-cases like "1px". You can, of course, modify these
-  | values as needed.
+  | provide a sensible % based numeric scale plus a couple other
+  | common use-cases like "1px". You can, of course, modify
+  | these values as needed.
   |
   | Class name: .m{side?}-{size}
   |
@@ -658,6 +689,21 @@ module.exports = {
     'auto': 'auto',
     '0': '0',
     'px': '1px',
+    '2': '2px',
+    '4': '4px',
+    '8': '8px',
+    '10': '10px',
+    '12': '12px',
+    '14': '14px',
+    '16': '16px',
+    '20': '20px',
+    '24': '24px',
+    '32': '32px',
+    '40': '40px',
+    '48': '48px',
+    '64': '64px',
+    '128': '128px',
+    '256': '256px',
     '1-2': '50%',
     '1-3': '33.33333%',
     '2-3': '66.66667%',
@@ -690,6 +736,21 @@ module.exports = {
 
   negativeMargin: {
     'px': '1px',
+    '2': '2px',
+    '4': '4px',
+    '8': '8px',
+    '10': '10px',
+    '12': '12px',
+    '14': '14px',
+    '16': '16px',
+    '20': '20px',
+    '24': '24px',
+    '32': '32px',
+    '40': '40px',
+    '48': '48px',
+    '64': '64px',
+    '128': '128px',
+    '256': '256px',
     '1-2': '50%',
     '1-3': '33.33333%',
     '2-3': '66.66667%',
@@ -819,8 +880,8 @@ module.exports = {
   | Modules                  https://tailwindcss.com/docs/configuration#modules
   |-----------------------------------------------------------------------------
   |
-  | Here is where you control which modules are generated and what variants are
-  | generated for each of those modules.
+  | Here is where you control which modules are generated and what variants
+  | are generated for each of those modules.
   |
   | Currently supported variants:
   |   - responsive
@@ -888,11 +949,8 @@ module.exports = {
   |-----------------------------------------------------------------------------
   |
   | Here is where you can register any plugins you'd like to use in your
-  | project. Tailwind's built-in `container` plugin is enabled by default to
-  | give you a Bootstrap-style responsive container component out of the box.
-  |
-  | Be sure to view the complete plugin documentation to learn more about how
-  | the plugin system works.
+  | project. Be sure to view the complete plugin documentation to
+  | learn more about how the plugin system works.
   |
   */
 
@@ -906,6 +964,9 @@ module.exports = {
   |
   | Here is where you can tweak advanced configuration options. We recommend
   | leaving these options alone unless you absolutely need to change them.
+  |
+  | The `important` option must always be set to `true`, in order for
+  | responsive utilities to override inlined CSS in HTML emails.
   |
   */
 
