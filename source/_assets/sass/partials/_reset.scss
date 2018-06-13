@@ -1,5 +1,9 @@
 @screen all {
   img {max-width: 100%;}
+
+  td, th {
+    box-sizing: border-box;
+  }
 }
 
 body {
