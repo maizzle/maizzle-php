@@ -56,7 +56,7 @@ module.exports = {
       notify: false,
       port: port,
       proxy: proxy,
-      tunnel: null,
+      tunnel: config.tunnel || false,
       server: proxy ? null : { baseDir: build_path, directory: true },
     },
     {

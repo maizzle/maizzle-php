@@ -168,6 +168,24 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
+    | BrowserSync Tunnel
+    |-----------------------------------------------------------------------------
+    |
+    | Running the `watch` command with this setting enabled, BrowserSync will
+    | create a tunnel to your localhost, via localtunnel.me. You can use
+    | this URL to share a live preview of what you're working on with
+    | a teammate or a client.
+    |
+    | By default, setting it to `true` will generate a random localtunnel.me
+    | subdomain. You can use a string instead, to have BrowserSync attempt
+    | to use a custom domain name.
+    |
+    */
+
+    'tunnel' => false,
+
+    /*
+    |-----------------------------------------------------------------------------
     | Helpers                             https://docs.maizzle.com/jigsaw/helpers
     |-----------------------------------------------------------------------------
     |
