@@ -43,8 +43,8 @@ module.exports.processEmails = (config, build_path, env) => {
 
     let baseImageURL = config.transformers.baseImageURL;
     if (isURL(baseImageURL)) {
-      html = html.replace(/src=("|')(.*?)("|')/gim, 'src="' + baseImageURL + '/$2"')
-                .replace(/url\(("|')(.*?)("|')\)/gim, "url('" + baseImageURL + "/$2')");
+      html = html.replace(/src=("|')([^http]*?)("|')/gim, 'src="' + baseImageURL + '/$2"')
+                  .replace(/url\(("|')?([^http]*?)("|')?\)/gim, "url('" + baseImageURL + "/$2')");
     }
 
     if (config.transformers.cleanup.removeUnusedCss) {
