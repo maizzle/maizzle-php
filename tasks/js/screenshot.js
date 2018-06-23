@@ -61,8 +61,8 @@ if (puppeteer) {
   let config = JSON.parse(execSync('php ./tasks/php/config -elocal'));
 
   if (!config || config.screenshots.devices.length < 1) {
-      console.log('\nScreenshot aborted: could not get devices list from config.php.\n');
-      process.exit();
+    console.log('\nScreenshot aborted: could not get devices list from config.php.\n');
+    process.exit();
   }
 
   (async () => {

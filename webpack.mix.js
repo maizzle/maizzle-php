@@ -10,9 +10,9 @@ mix.disableSuccessNotifications();
 mix.setPublicPath('source/assets/');
 mix.webpackConfig({
     plugins: [
-        build.jigsaw,
-        build.browserSync(),
-        build.watch(['source/**/*.md', 'source/**/*.php', 'source/**/*.scss']),
+      build.jigsaw,
+      build.browserSync(),
+      build.watch(['source/**/*.md', 'source/**/*.php', 'source/**/*.scss']),
     ]
 });
 

@@ -30,11 +30,11 @@ return [
     */
 
     'transformers' => [
+        'baseImageURL' => '',
         'inlineCSS' => [
             'enabled' => true,
             'removeStyleTags' => true,
         ],
-        'baseImageURL' => '',
         'cleanup' => [
             'removeUnusedCss' => true,
             'removeTableWidthCss' => true,
@@ -42,9 +42,7 @@ return [
         ],
         'prettify' => true,
         'minify' => [
-            'enabled' => true,
-            'minifyCSS' => true,
-            'collapseWhitespace' => false,
+            'enabled' => false,
         ],
     ],
 

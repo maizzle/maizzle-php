@@ -150,11 +150,11 @@ return [
     */
 
     'transformers' => [
+        'baseImageURL' => '',
         'inlineCSS' => [
             'enabled' => false,
             'removeStyleTags' => false,
         ],
-        'baseImageURL' => '',
         'cleanup' => [
             'removeUnusedCss' => false,
             'removeTableWidthCss' => false,
@@ -178,7 +178,7 @@ return [
     |
     | By default, setting it to `true` will generate a random localtunnel.me
     | subdomain. You can use a string instead, to have BrowserSync attempt
-    | to use a custom domain name.
+    | to use a custom subdomain.
     |
     */
 

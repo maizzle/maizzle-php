@@ -25,11 +25,11 @@ return [
     */
 
     'transformers' => [
+        'baseImageURL' => '',
         'inlineCSS' => [
             'enabled' => true,
             'removeStyleTags' => true,
         ],
-        'baseImageURL' => '',
         'cleanup' => [
             'removeUnusedCss' => true,
             'removeTableWidthCss' => true,
