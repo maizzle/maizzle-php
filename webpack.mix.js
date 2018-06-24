@@ -9,11 +9,11 @@ let env = argv.e || argv.env || 'local';
 mix.disableSuccessNotifications();
 mix.setPublicPath('source/assets/');
 mix.webpackConfig({
-    plugins: [
-      build.jigsaw,
-      build.browserSync(),
-      build.watch(['source/**/*.md', 'source/**/*.php', 'source/**/*.scss']),
-    ]
+  plugins: [
+    build.jigsaw,
+    build.browserSync(),
+    build.watch(['source/**/*.md', 'source/**/*.php', 'source/**/*.scss']),
+  ]
 });
 
 mix.sass('source/_assets/sass/extra.scss', 'css/extra.css')
