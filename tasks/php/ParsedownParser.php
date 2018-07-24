@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Maizzle\Tasks;
 
 use Mni\FrontYAML\Markdown\MarkdownParser;
 use Parsedown as BaseParsedown;

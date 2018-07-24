@@ -4,7 +4,7 @@
   },
   "autoload": {
     "psr-4": {
-      "App\\": "tasks/"
+      "Maizzle\\Tasks\\": "tasks/php"
     }
   }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use App\ParsedownParser;
+use Maizzle\Tasks\ParsedownParser;
 use Mni\FrontYAML\Markdown\MarkdownParser;
 
 /** @var $container \Illuminate\Container\Container */
