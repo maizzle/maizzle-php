@@ -59,10 +59,10 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Jigsaw build defaults
+    | Build defaults       https://maizzle.com/docs/configuration/#build-defaults
     |-----------------------------------------------------------------------------
     |
-    | Leave these alone unless you really know what you're doing.
+    | Configure additional Jigsaw build settings.
     |
     */
 

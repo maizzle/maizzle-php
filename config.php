@@ -2,14 +2,14 @@
 
 /*
 
-Maizzle - Email Development Workflow
+Maizzle - Email Development Framework
 
 A project by Cosmin Popovici (@cossssmin) and ThemeMountain (@thememountainco).
 
 Welcome to the Maizzle config file. This is where you can customise some
 Maizzle settings for your project.
 
-View the full documentation at https://docs.maizzle.com.
+View the full documentation at https://maizzle.com/docs
 
 
 |-------------------------------------------------------------------------------
@@ -81,7 +81,7 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Google Fonts                              https://docs.maizzle.com/webfonts
+    | Google Fonts           https://maizzle.com/docs/configuration/#google-fonts
     |-----------------------------------------------------------------------------
     |
     | This is where you can define which Google Fonts Maizzle should import by
@@ -104,7 +104,7 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Screenshots                            https://docs.maizzle.com/screenshots
+    | Screenshots                            https://maizzle.com/docs/screenshots
     |-----------------------------------------------------------------------------
     |
     | This is where you can define which devices Puppeteer should emulate when
@@ -132,7 +132,7 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Output transformations                https://docs.maizzle.com/transformers
+    | Transformers           https://maizzle.com/docs/configuration/#transformers
     |-----------------------------------------------------------------------------
     |
     | This is where you can define various transformations that will be applied
@@ -194,7 +194,7 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Helpers                             https://docs.maizzle.com/jigsaw/helpers
+    | Helpers                     https://maizzle.com/docs/configuration/#helpers
     |-----------------------------------------------------------------------------
     |
     | Jigsaw config functions used by Maizzle in the build process.
@@ -209,10 +209,10 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Jigsaw build defaults
+    | Build defaults       https://maizzle.com/docs/configuration/#build-defaults
     |-----------------------------------------------------------------------------
     |
-    | Leave these alone unless you really know what you're doing.
+    | Configure additional Jigsaw build settings.
     |
     */
 
