@@ -16,7 +16,7 @@
 <body class="{{ $page->bodyClasses ?? '' }}">
 
   @if($page->preheader)
-  <div class="hidden text-0 leading-0">{{ $page->preheader }}</div>
+  <div class="hidden text-0 leading-0">{!! $page->preheader !!}</div>
   @endif
 
   @yield('content')

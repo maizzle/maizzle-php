@@ -185,6 +185,12 @@ module.exports = {
       'Segoe UI',
       'sans-serif',
     ],
+    'roboto': [
+      'Roboto',
+      '-apple-system',
+      'Segoe UI',
+      'sans-serif',
+    ],
     'merriweather': [
       'Merriweather',
       '-apple-system',
