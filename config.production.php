@@ -31,7 +31,16 @@ return [
             'removeStyleTags' => true,
         ],
         'cleanup' => [
-            'removeUnusedCss' => true,
+            'removeUnusedCss' => [
+                'enabled' => true,
+                'whitelist' => [
+                    ".External*",
+                    ".ReadMsgBody",
+                    ".yshortcuts",
+                    ".Mso*",
+                    "#outlook",
+                ],
+            ],
             'removeTableWidthCss' => true,
             'preferBgColorAttribute' => true,
         ],

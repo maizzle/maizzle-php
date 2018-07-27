@@ -153,10 +153,11 @@ return [
         'baseImageURL' => '',
         'inlineCSS' => [
             'enabled' => false,
-            'removeStyleTags' => false,
         ],
         'cleanup' => [
-            'removeUnusedCss' => false,
+            'removeUnusedCss' => [
+                'enabled' => false,
+            ],
             'removeTableWidthCss' => false,
             'preferBgColorAttribute' => false,
         ],
