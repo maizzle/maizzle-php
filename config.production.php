@@ -37,11 +37,12 @@ return [
         ],
         'prettify' => false,
         'minify' => [
-            'enabled' => true,
             'minifyCSS' => true,
             'maxLineLength' => 500,
-            'collapseWhitespace' => true,
             'preserveLineBreaks' => false,
+            'collapseWhitespace' => true,
+            'conservativeCollapse' => false,
+            'processConditionalComments' => true,
         ],
     ],
 

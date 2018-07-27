@@ -42,7 +42,12 @@ return [
         ],
         'prettify' => true,
         'minify' => [
-            'enabled' => false,
+            'minifyCSS' => false,
+            'maxLineLength' => false,
+            'preserveLineBreaks' => false,
+            'collapseWhitespace' => false,
+            'conservativeCollapse' => false,
+            'processConditionalComments' => false,
         ],
     ],
 
