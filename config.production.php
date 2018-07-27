@@ -53,6 +53,8 @@ return [
             'conservativeCollapse' => false,
             'processConditionalComments' => true,
         ],
+        'sixHex' => true,
+        'altText' => true,
     ],
 
     /*

@@ -170,6 +170,8 @@ return [
             'conservativeCollapse' => false,
             'processConditionalComments' => false,
         ],
+        'sixHex' => false,
+        'altText' => false,
     ],
 
     /*

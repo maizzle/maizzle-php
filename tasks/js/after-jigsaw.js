@@ -70,8 +70,13 @@ module.exports.processEmails = (config, build_path, env) => {
       processConditionalComments: minifyOpts.processConditionalComments
     });
 
-    html = sixHex(html);
-    html = altText(html);
+    if (config.transformers.sixHex) {
+      html = sixHex(html);
+    }
+
+    if (config.transformers.altText) {
+      html = altText(html);
+    }
 
     fs.writeFileSync(file, html);
   });
