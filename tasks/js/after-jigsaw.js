@@ -14,7 +14,7 @@ module.exports.processEmails = (config, build_path, env) => {
   let minifyOpts = config.transformers.minify;
   let cleanupOpts = config.transformers.cleanup;
   let files = glob.sync([build_path+'/**/*.html']);
-  let extraCss = fs.readFileSync('source/assets/css/extra.css', 'utf8');
+  let extraCss = fs.readFileSync('source/css/extra.css', 'utf8');
 
   files.map((file) => {
 
@@ -22,6 +22,10 @@ module.exports.processEmails = (config, build_path, env) => {
 
     if (config.transformers.inlineCSS.enabled) {
       html = inlineCSS(html, {removeStyleTags: config.transformers.inlineCSS.removeStyleTags || false});
+    }
+
+    if (cleanupOpts.removeUnusedCss.enabled) {
+      html = cleanCSS(html, { whitelist: cleanupOpts.whitelist || [] }).result;
     }
 
     let $ = cheerio.load(html, {decodeEntities: false});
@@ -47,10 +51,6 @@ module.exports.processEmails = (config, build_path, env) => {
     if (isURL(baseImageURL)) {
       html = html.replace(/src=("|')([^http]*?)("|')/gim, 'src="' + baseImageURL + '/$2"')
                   .replace(/url\(("|')?([^http]*?)("|')?\)/gim, "url('" + baseImageURL + "/$2')");
-    }
-
-    if (cleanupOpts.removeUnusedCss.enabled) {
-      html = cleanCSS(html, { whitelist: cleanupOpts.whitelist || [] }).result;
     }
 
     if (config.transformers.prettify) {

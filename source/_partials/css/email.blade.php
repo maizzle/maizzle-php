@@ -1,2 +1,2 @@
 @include('_partials.css.outlook-conditional')
-<style>{!! file_get_contents('source/assets/css/main.css') !!}</style>
+<style>{!! file_get_contents('source/css/main.css') !!}</style>

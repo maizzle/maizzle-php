@@ -29,8 +29,8 @@ let prettyURLs = config.pretty == false ? '--pretty=false ' : '';
 module.exports = {
   jigsaw: new AfterWebpack(() => {
 
-    let mqCombined = mqpacker.pack(fs.readFileSync("source/assets/css/main.css", "utf8")).css;
-    fs.writeFileSync('source/assets/css/main.css', mqCombined);
+    let mqCombined = mqpacker.pack(fs.readFileSync("source/css/main.css", "utf8")).css;
+    fs.writeFileSync('source/css/main.css', mqCombined);
 
     command.get(bin.path() + ' build ' + prettyURLs + env, (error, stdout, stderr) => {
       console.log(error ? stderr : stdout);

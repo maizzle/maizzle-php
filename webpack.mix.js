@@ -7,7 +7,7 @@ require('laravel-mix-purgecss');
 let env = argv.e || argv.env || 'local';
 
 mix.disableSuccessNotifications();
-mix.setPublicPath('source/assets/');
+mix.setPublicPath('source/css/');
 mix.webpackConfig({
   plugins: [
     build.jigsaw,
@@ -16,8 +16,8 @@ mix.webpackConfig({
   ]
 });
 
-mix.sass('source/_assets/sass/extra.scss', 'css/extra.css')
-  .sass('source/_assets/sass/main.scss', 'css/main.css')
+mix.sass('source/_styles/extra.scss', 'extra.css')
+  .sass('source/_styles/main.scss', 'main.css')
   .options({
     processCssUrls: false,
     postCss: [
