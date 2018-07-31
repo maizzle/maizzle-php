@@ -1,5 +1,7 @@
 @screen all {
-  img {max-width: 100%;}
+  img {
+    @apply .max-w-full;
+  }
 
   td, th {
     box-sizing: border-box;
