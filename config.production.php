@@ -16,7 +16,7 @@ return [
 
     /*
     |-------------------------------------------------------------------------------
-    | Output transformations                  https://docs.maizzle.com/transformers
+    | Transformers             https://maizzle.com/docs/configuration/#transformers
     |-------------------------------------------------------------------------------
     |
     | These settings are tailored to production - this is what controls

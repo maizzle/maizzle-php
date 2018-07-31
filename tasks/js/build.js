@@ -56,8 +56,8 @@ module.exports = {
       notify: false,
       port: port,
       proxy: proxy,
-      tunnel: config.tunnel || false,
-      server: proxy ? null : { baseDir: build_path, directory: true },
+      tunnel: config.browsersync.tunnel || false,
+      server: proxy ? null : { baseDir: build_path, directory: config.browsersync.listing || true },
     },
     {
       reload: false,

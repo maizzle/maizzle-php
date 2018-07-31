@@ -20,7 +20,7 @@ return [
 
     /*
     |-------------------------------------------------------------------------------
-    | Output transformations                  https://docs.maizzle.com/transformers
+    | Transformers             https://maizzle.com/docs/configuration/#transformers
     |-------------------------------------------------------------------------------
     |
     | These settings are tailored to email render testing and debugging.

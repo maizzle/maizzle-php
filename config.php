@@ -25,7 +25,7 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Layout          http://jigsaw.tighten.co/docs/blade-templates-and-partials/
+    | Layout                                    https://maizzle.com/docs/layouts/
     |-----------------------------------------------------------------------------
     |
     | Define a master layout that all templates will extend by default.
@@ -40,7 +40,7 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Language                https://docs.thememountain.com/acorn/accessibility/
+    | Language                   https://maizzle.com/docs/configuration/#language
     |-----------------------------------------------------------------------------
     |
     | This will be used in the lang="" attribute of the <html> tag. It helps
@@ -53,7 +53,7 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Character set           https://docs.thememountain.com/acorn/accessibility/
+    | Character set               https://maizzle.com/docs/configuration/#charset
     |-----------------------------------------------------------------------------
     |
     | Character encoding is set to UTF-8 by default. This prevents breaking
@@ -66,7 +66,7 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Document title          https://docs.thememountain.com/acorn/accessibility/
+    | Document title                https://maizzle.com/docs/configuration/#title
     |-----------------------------------------------------------------------------
     |
     | The <title> tag is included in order to give screen reader users context.
@@ -104,7 +104,7 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | Screenshots                            https://maizzle.com/docs/screenshots
+    | Screenshots                  https://maizzle.com/docs/building/#screenshots
     |-----------------------------------------------------------------------------
     |
     | This is where you can define which devices Puppeteer should emulate when
@@ -176,21 +176,34 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
-    | BrowserSync Tunnel
+    | BrowserSync             https://maizzle.com/docs/configuration/#browsersync
     |-----------------------------------------------------------------------------
     |
-    | Running the `watch` command with this setting enabled, BrowserSync will
-    | create a tunnel to your localhost, via localtunnel.me. You can use
-    | this URL to share a live preview of what you're working on with
-    | a teammate or a client.
+    | Tunnel
+    |
+    | Running the `watch` command with 'tunnel' set to `true`, BrowserSync
+    | will create a tunnel to your localhost, via localtunnel.me. You can
+    | use this URL to share a live preview of what you're working
+    | on with a colleague or a client.
     |
     | By default, setting it to `true` will generate a random localtunnel.me
     | subdomain. You can use a string instead, to have BrowserSync attempt
     | to use a custom subdomain.
     |
+    | Directory listing
+    |
+    | Setting the 'listing' option to `true` will enable a directory listing
+    | when running the `watch` command, so you can browse through your
+    | emails. You might want to set it to `false` when using the
+    | tunnel option with a client.
+    |
     */
 
-    'tunnel' => false,
+    'browsersync' => [
+        'tunnel' => false,
+        'listing' => false,
+    ],
+
 
     /*
     |-----------------------------------------------------------------------------
