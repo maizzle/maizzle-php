@@ -1,57 +1,35 @@
+<p align="center">
+    <a href="https://maizzle.com/" target="_blank">
+        <img width="300" src="https://maizzle.com/img/maizzle.svg" alt="Maizzle">
+    </a>
+    <br>
+    The email framework that puts you in control.
+</p>
 
-# Maizzle
-
-The HTML email workflow that puts you in control.
+------
 
 ## Features
 
-- Build System (Jigsaw static site generator)
-- Centralised Style Guide (TailwindCSS, utility-first CSS framework)
+- Build System ([Jigsaw](#what-is-jigsaw))
+- Centralised Style Guide ([Tailwind CSS](#what-is-tailwind-css))
 - BYOHTML - Bring Your Own HTML
 - Rapid Email Prototyping
-- Clean Code Output
+- Includes (Blade partials and components)
+- Build environments
+- Environment-specific configuration
+- Custom data structures (Collections)
+- BrowserSync, with localhost tunneling
+- Automatic CSS inlining
+- Unused CSS purging
+- Minification, prettify code, email-tailored code fixes
+- Write emails in Markdown
+- Google Fonts support
+- ESP code friendly
 - Screenshots
-- Includes, components
-- BrowserSync, with tunneling
-- CSS inlining, minification, prettify code, various code fixes...
 
 ## Documentation
 
-Detailed documentation for Maizzle will be coming soon.
-
-## Requirements
-
-- PHP 7
-- [Composer](https://getcomposer.org/)
-- [Node.js](https://nodejs.org) and NPM
-
-## Getting Started
-
-1. Clone this repo
-
-2. Navigate to the folder
-
-    ```sh
-    cd maizzle
-    ```
-
-3. Install JS dependencies
-    ```sh
-    npm install
-    ```
-
-4. Install PHP dependencies
-    ```sh
-    composer install
-    ```
-
-5. Run the dev script to build the site
-
-    ```sh
-    npm run dev
-    ```
-
-To use Browsersync, run the watch script instead: `npm run watch`
+Documentation is available at [maizzle.com](https://maizzle.com/).
 
 ## What is Jigsaw?
 
