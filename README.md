@@ -1,9 +1,9 @@
 <p align="center">
     <a href="https://maizzle.com/" target="_blank">
-        <img width="300" src="https://maizzle.com/img/maizzle.svg" alt="Maizzle">
+        <img width="250" src="https://maizzle.com/img/maizzle.svg" alt="Maizzle">
     </a>
     <br>
-    The email framework that puts you in control.
+    The email framework that puts you in control
 </p>
 
 ------
