@@ -158,7 +158,12 @@ return [
             'removeUnusedCss' => [
                 'enabled' => false,
             ],
-            'removeTableWidthCss' => false,
+            'preferAttributeWidth' => [
+                'table' => false,
+                'td' => false,
+                'th' => false,
+                'img' => false,
+            ],
             'preferBgColorAttribute' => false,
         ],
         'prettify' => false,

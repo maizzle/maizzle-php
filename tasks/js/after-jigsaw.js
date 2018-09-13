@@ -33,9 +33,11 @@ module.exports.processEmails = (config, build_path, env) => {
     let style = $('style').first();
     style.html(extraCss + style.text());
 
-    if (cleanupOpts.removeTableWidthCss) {
-      $('table, td').each((i, elem) => {
-        $(elem).css('width', '');
+    if (cleanupOpts.preferAttributeWidth) {
+      Object.entries(cleanupOpts.preferAttributeWidth).map(([k, v]) => {
+        if (v) {
+          $(k).each((i, el) => { $(el).css('width', '') });
+        }
       });
     }
 

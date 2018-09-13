@@ -46,7 +46,12 @@ return [
                     "#outlook",
                 ],
             ],
-            'removeTableWidthCss' => true,
+            'preferAttributeWidth' => [
+                'table' => true,
+                'td' => true,
+                'th' => true,
+                'img' => true,
+            ],
             'preferBgColorAttribute' => true,
         ],
         'prettify' => true,
