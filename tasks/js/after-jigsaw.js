@@ -25,7 +25,13 @@ module.exports.processEmails = (config, build_path, env) => {
     }
 
     if (cleanupOpts.removeUnusedCss.enabled) {
-      html = cleanCSS(html, { whitelist: cleanupOpts.whitelist || [] }).result;
+      html = cleanCSS(html, {
+        whitelist: cleanupOpts.removeUnusedCss.whitelist || [],
+        uglify: cleanupOpts.removeUnusedCss.uglify || false,
+        removeHTMLComments: cleanupOpts.removeUnusedCss.removeHTMLComments.enabled || true,
+        doNotRemoveHTMLCommentsWhoseOpeningTagContains: cleanupOpts.removeUnusedCss.removeHTMLComments.preserve || ['if', 'endif', 'mso', 'ie'],
+        }
+      ).result;
     }
 
     let $ = cheerio.load(html, {decodeEntities: false});

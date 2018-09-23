@@ -40,6 +40,11 @@ return [
                     ".Mso*",
                     "#outlook",
                 ],
+                'removeHTMLComments' => [
+                    'enabled' => true,
+                    'preserve' => ['if', 'endif', 'mso', 'ie'],
+                ],
+                'uglify' => true,
             ],
             'preferAttributeWidth' => [
                 'table' => true,

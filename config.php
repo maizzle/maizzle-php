@@ -157,6 +157,18 @@ return [
         'cleanup' => [
             'removeUnusedCss' => [
                 'enabled' => false,
+                'whitelist' => [
+                    ".External*",
+                    ".ReadMsgBody",
+                    ".yshortcuts",
+                    ".Mso*",
+                    "#outlook",
+                ],
+                'removeHTMLComments' => [
+                    'enabled' => false,
+                    'preserve' => ['if', 'endif', 'mso', 'ie'],
+                ],
+                'uglify' => false,
             ],
             'preferAttributeWidth' => [
                 'table' => false,
