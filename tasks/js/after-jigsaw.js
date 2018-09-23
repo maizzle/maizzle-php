@@ -57,8 +57,9 @@ module.exports.processEmails = (config, build_path, env) => {
 
     let baseImageURL = config.transformers.baseImageURL;
     if (isURL(baseImageURL)) {
-      html = html.replace(/src=("|')([^http]*?)("|')/gim, 'src="' + baseImageURL + '/$2"')
-                  .replace(/url\(("|')?([^http]*?)("|')?\)/gim, "url('" + baseImageURL + "/$2')");
+      html = html.replace(/src=("|')([^("|')]*)("|')/gim, 'src="' + baseImageURL + '$2"')
+                  .replace(/background=("|')([^("|')]*)("|')/gim, 'background="' + baseImageURL + '$2"')
+                  .replace(/background(-image)?:\s?url\(("|')?([^("|')]*)("|')?\)/gim, "url('" + baseImageURL + "$3')");
     }
 
     if (config.transformers.prettify) {
