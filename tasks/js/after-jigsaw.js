@@ -9,7 +9,7 @@ let minify = require('html-minifier').minify;
 let sixHex = require('color-shorthand-hex-to-six-digit');
 let altText = require('html-img-alt');
 
-module.exports.processEmails = (config, build_path, env) => {
+module.exports.processEmails = (config, build_path) => {
 
   let minifyOpts = config.transformers.minify;
   let cleanupOpts = config.transformers.cleanup;
