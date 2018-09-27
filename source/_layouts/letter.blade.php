@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE {!! $page->doctype ?? 'html' !!}>
 <html lang="{{ $page->language ?? 'en' }}" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
   <meta charset="{{ $page->charset ?? 'utf8' }}">

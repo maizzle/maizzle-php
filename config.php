@@ -40,6 +40,21 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
+    | Doctype                     https://maizzle.com/docs/configuration/#doctype
+    |-----------------------------------------------------------------------------
+    |
+    | Define a doctype that will be used by the layout your emails extend.
+    |
+    | Maizzle defines an HTML 5 doctype by default, but you can choose
+    | any doctype you need. You can also override it for each email,
+    | through a front matter variable. If you use an empty string,
+    | the default layout will fallback to 'html'.
+    |
+    */
+    'doctype' => 'html',
+
+    /*
+    |-----------------------------------------------------------------------------
     | Language                   https://maizzle.com/docs/configuration/#language
     |-----------------------------------------------------------------------------
     |
