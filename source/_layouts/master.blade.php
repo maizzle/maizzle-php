@@ -12,6 +12,7 @@
   @endif
 
   @include('_partials.css.email')
+  @stack('head')
 </head>
 <body class="{{ $page->bodyClasses ?? '' }}">
 
