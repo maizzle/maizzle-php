@@ -21,6 +21,9 @@ module.exports.processEmails = (config, build_path) => {
     let html = fs.readFileSync(file, 'utf8');
 
     if (config.transformers.inlineCSS.enabled) {
+      if (config.transformers.inlineCSS.styleToAttribute) {
+        juice.styleToAttribute = config.transformers.inlineCSS.styleToAttribute.rules ? config.transformers.inlineCSS.styleToAttribute.rules : juice.styleToAttribute;
+      }
       html = juice(html, {removeStyleTags: config.transformers.inlineCSS.removeStyleTags || false});
     }
 
