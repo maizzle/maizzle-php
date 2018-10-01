@@ -24,6 +24,13 @@ module.exports.processEmails = (config, build_path) => {
       if (config.transformers.inlineCSS.styleToAttribute) {
         juice.styleToAttribute = config.transformers.inlineCSS.styleToAttribute.rules ? config.transformers.inlineCSS.styleToAttribute.rules : juice.styleToAttribute;
       }
+
+      if (config.transformers.inlineCSS.codeBlocks) {
+        Object.entries(config.transformers.inlineCSS.codeBlocks).forEach(
+            ([k, v]) => juice.codeBlocks[k] = v
+        );
+      }
+
       html = juice(html, {removeStyleTags: config.transformers.inlineCSS.removeStyleTags || false});
     }
 
