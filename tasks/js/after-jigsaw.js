@@ -32,7 +32,7 @@ module.exports.processEmails = (config, build_path) => {
         );
       }
 
-      html = juice(html, {removeStyleTags: transformers.inlineCSS.removeStyleTags || false});
+      html = juice(html, {removeStyleTags: transformers.inlineCSS.removeStyleTags || true});
     }
 
     if (cleanupOpts.removeUnusedCss.enabled) {

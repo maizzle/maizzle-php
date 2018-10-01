@@ -168,7 +168,6 @@ return [
         'baseImageURL' => '',
         'inlineCSS' => [
             'enabled' => false,
-            'removeStyleTags' => true,
         ],
         'cleanup' => [
             'removeUnusedCss' => [
