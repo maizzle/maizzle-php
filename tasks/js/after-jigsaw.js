@@ -1,6 +1,6 @@
 let fs = require('fs');
 let glob = require('glob-all');
-let inlineCSS = require('juice');
+let juice = require('juice');
 let cheerio = require('cheerio');
 let isURL = require('is-url');
 let cleanCSS = require('email-remove-unused-css');
@@ -21,7 +21,7 @@ module.exports.processEmails = (config, build_path) => {
     let html = fs.readFileSync(file, 'utf8');
 
     if (config.transformers.inlineCSS.enabled) {
-      html = inlineCSS(html, {removeStyleTags: config.transformers.inlineCSS.removeStyleTags || false});
+      html = juice(html, {removeStyleTags: config.transformers.inlineCSS.removeStyleTags || false});
     }
 
     if (cleanupOpts.removeUnusedCss.enabled) {
