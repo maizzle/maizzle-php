@@ -11,8 +11,9 @@ let altText = require('html-img-alt');
 
 module.exports.processEmails = (config, build_path) => {
 
-  let minifyOpts = config.transformers.minify;
-  let cleanupOpts = config.transformers.cleanup;
+  let transformers = config.transformers;
+  let minifyOpts = transformers.minify;
+  let cleanupOpts = transformers.cleanup;
   let files = glob.sync([build_path+'/**/*.html']);
   let extraCss = fs.readFileSync('source/css/extra.css', 'utf8');
 
@@ -20,18 +21,18 @@ module.exports.processEmails = (config, build_path) => {
 
     let html = fs.readFileSync(file, 'utf8');
 
-    if (config.transformers.inlineCSS.enabled) {
-      if (config.transformers.inlineCSS.styleToAttribute) {
-        juice.styleToAttribute = config.transformers.inlineCSS.styleToAttribute.rules ? config.transformers.inlineCSS.styleToAttribute.rules : juice.styleToAttribute;
+    if (transformers.inlineCSS.enabled) {
+      if (transformers.inlineCSS.styleToAttribute) {
+        juice.styleToAttribute = transformers.inlineCSS.styleToAttribute.rules ? transformers.inlineCSS.styleToAttribute.rules : juice.styleToAttribute;
       }
 
-      if (config.transformers.inlineCSS.codeBlocks) {
-        Object.entries(config.transformers.inlineCSS.codeBlocks).forEach(
+      if (transformers.inlineCSS.codeBlocks) {
+        Object.entries(transformers.inlineCSS.codeBlocks).forEach(
             ([k, v]) => juice.codeBlocks[k] = v
         );
       }
 
-      html = juice(html, {removeStyleTags: config.transformers.inlineCSS.removeStyleTags || false});
+      html = juice(html, {removeStyleTags: transformers.inlineCSS.removeStyleTags || false});
     }
 
     if (cleanupOpts.removeUnusedCss.enabled) {
@@ -65,14 +66,14 @@ module.exports.processEmails = (config, build_path) => {
 
     html = $.html();
 
-    let baseImageURL = config.transformers.baseImageURL;
+    let baseImageURL = transformers.baseImageURL;
     if (isURL(baseImageURL)) {
       html = html.replace(/src=("|')([^("|')]*)("|')/gim, 'src="' + baseImageURL + '$2"')
                   .replace(/background=("|')([^("|')]*)("|')/gim, 'background="' + baseImageURL + '$2"')
                   .replace(/background(-image)?:\s?url\(("|')?([^("|')]*)("|')?\)/gim, "url('" + baseImageURL + "$3')");
     }
 
-    if (config.transformers.prettify) {
+    if (transformers.prettify) {
       html = pretty(html, {ocd: true, indent_inner_html: false});
     }
 
@@ -89,11 +90,11 @@ module.exports.processEmails = (config, build_path) => {
       processConditionalComments: minifyOpts.processConditionalComments
     });
 
-    if (config.transformers.sixHex) {
+    if (transformers.sixHex) {
       html = sixHex(html);
     }
 
-    if (config.transformers.altText) {
+    if (transformers.altText) {
       html = altText(html);
     }
 
