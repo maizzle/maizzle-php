@@ -22,6 +22,7 @@ mix.less('source/_styles/extra.less', 'extra.css')
     processCssUrls: false,
     postCss: [
       tailwind('tailwind.js'),
+      require('postcss-merge-longhand'),
     ]
   }).purgeCss({
     enabled: env !== 'local',

@@ -30,6 +30,7 @@
     "mkdirp": "^0.5.1",
     "node-cmd": "^3.0.0",
     "on-build-webpack": "^0.1.0",
+    "postcss-merge-longhand": "^4.0.6",
     "pretty": "^2.0.0",
     "requireg": "^0.1.8",
     "slugify": "^1.3.0",
