@@ -25,6 +25,8 @@
     "juice": "^4.3.1",
     "laravel-mix": "^2.1.0",
     "laravel-mix-purgecss": "^2.2.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
     "mkdirp": "^0.5.1",
     "node-cmd": "^3.0.0",
     "on-build-webpack": "^0.1.0",
