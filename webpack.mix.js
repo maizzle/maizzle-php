@@ -16,15 +16,17 @@ mix.webpackConfig({
   ]
 });
 
-mix.less('source/_styles/extra.less', 'extra.css')
-  .less('source/_styles/main.less', 'main.css')
-  .options({
+mix.options({
     processCssUrls: false,
     postCss: [
+      require('postcss-import'),
       tailwind('tailwind.js'),
       require('postcss-merge-longhand'),
     ]
-  }).purgeCss({
+  })
+  .postCss('source/_styles/extra.css', 'extra.css')
+  .postCss('source/_styles/main.css', 'main.css')
+  .purgeCss({
     enabled: env !== 'local',
     extensions: ['php', 'md'],
     folders: ['source'],
