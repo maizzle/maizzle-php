@@ -9,12 +9,12 @@ let minify = require('html-minifier').minify;
 let sixHex = require('color-shorthand-hex-to-six-digit');
 let altText = require('html-img-alt');
 
-module.exports.processEmails = (config, build_path) => {
+module.exports.processEmails = (config) => {
 
   let transformers = config.transformers;
   let minifyOpts = transformers.minify;
   let cleanupOpts = transformers.cleanup;
-  let files = glob.sync([build_path+'/**/*.html']);
+  let files = glob.sync([config.build.destination + '/**/*.html']);
   let extraCss = fs.readFileSync('source/css/extra.css', 'utf8');
 
   files.map((file) => {
