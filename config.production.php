@@ -66,6 +66,8 @@ return [
         'altText' => true,
     ],
 
+    'plaintext' => true,
+
     /*
     |-----------------------------------------------------------------------------
     | Build defaults       https://maizzle.com/docs/configuration/#build-defaults

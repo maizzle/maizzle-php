@@ -8,6 +8,7 @@ let pretty = require('pretty');
 let minify = require('html-minifier').minify;
 let sixHex = require('color-shorthand-hex-to-six-digit');
 let altText = require('html-img-alt');
+let stripHtml = require("string-strip-html");
 
 module.exports.processEmails = (config) => {
 
@@ -99,5 +100,20 @@ module.exports.processEmails = (config) => {
     }
 
     fs.writeFileSync(file, html);
+
+    if (config.plaintext) {
+      let plaintext = stripHtml(html, {
+                        dumpLinkHrefsNearby: {
+                          enabled: true,
+                          putOnNewLine: true,
+                          wrapHeads: '[',
+                          wrapTails: ']',
+                        }
+                      });
+
+      let plaintextPath = file.replace(/(\.blade\.php|\.html)/, '.txt');
+
+      fs.writeFileSync(plaintextPath, plaintext);
+    }
   });
 }
