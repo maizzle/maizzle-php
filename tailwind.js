@@ -962,7 +962,9 @@ module.exports = {
   |
   */
 
-  plugins: [],
+  plugins: [
+    require('./tailwind/plugins/extraBorderUtilities')
+  ],
 
 
   /*
