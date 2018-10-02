@@ -196,6 +196,19 @@ return [
 
     /*
     |-----------------------------------------------------------------------------
+    | Plaintext                 https://maizzle.com/docs/configuration/#plaintext
+    |-----------------------------------------------------------------------------
+    |
+    | When this option is set to true, Maizzle will generate a plaintext version
+    | for every template. The .txt file will be placed in the same directory
+    | as the HTML it's based on, and it will also have the same name.
+    |
+    */
+
+    'plaintext' => false,
+
+    /*
+    |-----------------------------------------------------------------------------
     | BrowserSync             https://maizzle.com/docs/configuration/#browsersync
     |-----------------------------------------------------------------------------
     |

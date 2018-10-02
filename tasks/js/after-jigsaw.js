@@ -8,13 +8,14 @@ let pretty = require('pretty');
 let minify = require('html-minifier').minify;
 let sixHex = require('color-shorthand-hex-to-six-digit');
 let altText = require('html-img-alt');
+let stripHtml = require("string-strip-html");
 
-module.exports.processEmails = (config, build_path) => {
+module.exports.processEmails = (config) => {
 
   let transformers = config.transformers;
   let minifyOpts = transformers.minify;
   let cleanupOpts = transformers.cleanup;
-  let files = glob.sync([build_path+'/**/*.html']);
+  let files = glob.sync([config.build.destination + '/**/*.html']);
   let extraCss = fs.readFileSync('source/css/extra.css', 'utf8');
 
   files.map((file) => {
@@ -99,5 +100,20 @@ module.exports.processEmails = (config, build_path) => {
     }
 
     fs.writeFileSync(file, html);
+
+    if (config.plaintext) {
+      let plaintext = stripHtml(html, {
+                        dumpLinkHrefsNearby: {
+                          enabled: true,
+                          putOnNewLine: true,
+                          wrapHeads: '[',
+                          wrapTails: ']',
+                        }
+                      });
+
+      let plaintextPath = file.replace(/(\.blade\.php|\.html)/, '.txt');
+
+      fs.writeFileSync(plaintextPath, plaintext);
+    }
   });
 }
