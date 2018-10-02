@@ -16,8 +16,8 @@ mix.webpackConfig({
   ]
 });
 
-mix.sass('source/_styles/extra.scss', 'extra.css')
-  .sass('source/_styles/main.scss', 'main.css')
+mix.less('source/_styles/extra.less', 'extra.css')
+  .less('source/_styles/main.less', 'main.css')
   .options({
     processCssUrls: false,
     postCss: [
