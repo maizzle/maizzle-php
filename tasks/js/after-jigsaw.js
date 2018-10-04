@@ -18,6 +18,7 @@ module.exports.processEmails = (config) => {
   let cleanupOpts = transformers.cleanup;
   let files = glob.sync([config.build.destination + '/**/*.html']);
   let extraCss = fs.readFileSync('source/css/extra.css', 'utf8');
+  let removeStyleTags = typeof inlineOpts.removeStyleTags !== 'undefined' ? inlineOpts.removeStyleTags : true;
 
   files.map((file) => {
 
@@ -43,7 +44,7 @@ module.exports.processEmails = (config) => {
         );
       }
 
-      html = juice(html, {removeStyleTags: inlineOpts.removeStyleTags || true});
+      html = juice(html, {removeStyleTags: removeStyleTags});
     }
 
     if (cleanupOpts.removeUnusedCss.enabled) {
