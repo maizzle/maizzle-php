@@ -33,6 +33,17 @@ return [
         'baseImageURL' => '',
         'inlineCSS' => [
             'enabled' => true,
+            'styleToAttribute' => [
+                'background-color' => 'bgcolor',
+                'background-image' => 'background',
+                'text-align' => 'align',
+                'vertical-align' => 'valign',
+            ],
+            'applySizeAttribute' => [
+                'width' => ['TABLE', 'TD', 'TH', 'IMG', 'VIDEO'],
+                'height' => ['TABLE', 'TD', 'TH', 'IMG', 'VIDEO'],
+            ],
+            'excludedProperties' => [],
         ],
         'cleanup' => [
             'removeUnusedCss' => [

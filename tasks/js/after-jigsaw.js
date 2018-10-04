@@ -13,27 +13,38 @@ let stripHtml = require("string-strip-html");
 module.exports.processEmails = (config) => {
 
   let transformers = config.transformers;
+  let inlineOpts = transformers.inlineCSS;
   let minifyOpts = transformers.minify;
   let cleanupOpts = transformers.cleanup;
   let files = glob.sync([config.build.destination + '/**/*.html']);
   let extraCss = fs.readFileSync('source/css/extra.css', 'utf8');
+  let removeStyleTags = typeof inlineOpts.removeStyleTags !== 'undefined' ? inlineOpts.removeStyleTags : true;
 
   files.map((file) => {
 
     let html = fs.readFileSync(file, 'utf8');
 
-    if (transformers.inlineCSS.enabled) {
-      if (transformers.inlineCSS.styleToAttribute) {
-        juice.styleToAttribute = transformers.inlineCSS.styleToAttribute.rules ? transformers.inlineCSS.styleToAttribute.rules : juice.styleToAttribute;
+    if (inlineOpts.enabled) {
+      if (inlineOpts.styleToAttribute) {
+        juice.styleToAttribute = inlineOpts.styleToAttribute || juice.styleToAttribute;
       }
 
-      if (transformers.inlineCSS.codeBlocks) {
-        Object.entries(transformers.inlineCSS.codeBlocks).forEach(
+      if (inlineOpts.applySizeAttribute) {
+        juice.widthElements = inlineOpts.applySizeAttribute.width || juice.widthElements;
+        juice.heightElements = inlineOpts.applySizeAttribute.height || juice.heightElements;
+      }
+
+      if (inlineOpts.excludedProperties) {
+        juice.excludedProperties = inlineOpts.excludedProperties || juice.excludedProperties;
+      }
+
+      if (inlineOpts.codeBlocks) {
+        Object.entries(inlineOpts.codeBlocks).forEach(
             ([k, v]) => juice.codeBlocks[k] = v
         );
       }
 
-      html = juice(html, {removeStyleTags: transformers.inlineCSS.removeStyleTags || true});
+      html = juice(html, {removeStyleTags: removeStyleTags});
     }
 
     if (cleanupOpts.removeUnusedCss.enabled) {
