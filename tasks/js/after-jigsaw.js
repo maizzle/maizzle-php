@@ -33,6 +33,10 @@ module.exports.processEmails = (config) => {
         juice.heightElements = inlineOpts.applySizeAttribute.height || juice.heightElements;
       }
 
+      if (inlineOpts.excludedProperties) {
+        juice.excludedProperties = inlineOpts.excludedProperties || juice.excludedProperties;
+      }
+
       if (inlineOpts.codeBlocks) {
         Object.entries(inlineOpts.codeBlocks).forEach(
             ([k, v]) => juice.codeBlocks[k] = v
