@@ -50,7 +50,7 @@ module.exports.processEmails = (config) => {
     if (cleanupOpts.removeUnusedCss.enabled) {
       html = cleanCSS(html, {
         whitelist: cleanupOpts.removeUnusedCss.whitelist || [],
-        uglify: cleanupOpts.removeUnusedCss.uglify || false,
+        uglify: cleanupOpts.removeUnusedCss.uglifyClassNames || false,
         removeHTMLComments: cleanupOpts.removeUnusedCss.removeHTMLComments.enabled || true,
         doNotRemoveHTMLCommentsWhoseOpeningTagContains: cleanupOpts.removeUnusedCss.removeHTMLComments.preserve || ['if', 'endif', 'mso', 'ie'],
         }

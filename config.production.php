@@ -54,7 +54,7 @@ return [
                     'enabled' => true,
                     'preserve' => ['if', 'endif', 'mso', 'ie'],
                 ],
-                'uglify' => true,
+                'uglifyClassNames' => true,
             ],
             'preferAttributeWidth' => [
                 'table' => true,
