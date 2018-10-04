@@ -173,11 +173,9 @@ return [
             'removeUnusedCss' => [
                 'enabled' => false,
             ],
-            'preferAttributeWidth' => [
-                'table' => false,
-                'td' => false,
-                'th' => false,
-                'img' => false,
+            'keepOnlyAttributeSizes' => [
+                'width' => [],
+                'height' => [],
             ],
             'preferBgColorAttribute' => false,
         ],

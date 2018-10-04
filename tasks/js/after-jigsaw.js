@@ -62,10 +62,12 @@ module.exports.processEmails = (config) => {
     let style = $('style').first();
     style.html(extraCss + style.text());
 
-    if (cleanupOpts.preferAttributeWidth) {
-      Object.entries(cleanupOpts.preferAttributeWidth).map(([k, v]) => {
-        if (v) {
-          $(k).each((i, el) => { $(el).css('width', '') });
+    if (cleanupOpts.keepOnlyAttributeSizes) {
+      Object.entries(cleanupOpts.keepOnlyAttributeSizes).map(([k, v]) => {
+        if (v.length > 0) {
+          $(v).each((i, el) => {
+            $(el).css(k, '')
+          });
         }
       });
     }
