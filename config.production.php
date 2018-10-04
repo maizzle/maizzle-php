@@ -32,7 +32,11 @@ return [
                 'background-color' => 'bgcolor',
                 'background-image' => 'background',
                 'text-align' => 'align',
-                'vertical-align' => 'valign'
+                'vertical-align' => 'valign',
+            ],
+            'applySizeAttribute' => [
+                'width' => ['TABLE', 'TD', 'TH', 'IMG', 'VIDEO'],
+                'height' => ['TABLE', 'TD', 'TH', 'IMG', 'VIDEO'],
             ],
         ],
         'cleanup' => [

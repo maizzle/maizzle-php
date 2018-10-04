@@ -27,6 +27,11 @@ module.exports.processEmails = (config) => {
         juice.styleToAttribute = transformers.inlineCSS.styleToAttribute || juice.styleToAttribute;
       }
 
+      if (transformers.inlineCSS.applySizeAttribute) {
+        juice.widthElements = transformers.inlineCSS.applySizeAttribute.width || juice.widthElements;
+        juice.heightElements = transformers.inlineCSS.applySizeAttribute.height || juice.heightElements;
+      }
+
       if (transformers.inlineCSS.codeBlocks) {
         Object.entries(transformers.inlineCSS.codeBlocks).forEach(
             ([k, v]) => juice.codeBlocks[k] = v
