@@ -117,6 +117,34 @@ let colors = {
   'pink-lightest': '#ffebef',
 }
 
+/*
+|-------------------------------------------------------------------------------
+| Gradients
+|-------------------------------------------------------------------------------
+|
+| Maizzle comes with a custom Tailwind plugin for background image gradients.
+| To get you started, we've provided a few subtle examples based on the
+| default framework colors, but you can add your own, with as many
+| color stops as you need.
+|
+| Note that if you specify a single color instead of an array of colors,
+| the gradient will start from `transparent`.
+|
+*/
+
+let gradients = {
+  'grey-dark': ['#b8c2cc', '#8795a1'],
+  'red-dark': ['#e3342f', '#cc1f1a'],
+  'orange-dark': ['#f6993f', '#de751f'],
+  'yellow-dark': ['#ffed4a', '#f2d024'],
+  'green-dark': ['#38c172', '#1f9d55'],
+  'teal-dark': ['#4dc0b5', '#38a89d'],
+  'blue-dark': ['#3490dc', '#2779bd'],
+  'indigo-dark': ['#6574cd', '#5661b3'],
+  'purple-dark': ['#9561e2', '#794acf'],
+  'pink-dark': ['#f66d9b', '#eb5286'],
+}
+
 module.exports = {
 
   /*
@@ -132,7 +160,22 @@ module.exports = {
   |
   */
 
-  colors: colors,
+ colors: colors,
+
+ /*
+ |-----------------------------------------------------------------------------
+ | Gradients                                  https://tailwindcss.com/docs/colors
+ |-----------------------------------------------------------------------------
+ |
+ | The gradients defined above are also assigned to the "gradients" key of
+ | your Tailwind config. This makes it easy to access them in your CSS
+ | using Tailwind's config helper. For example:
+ |
+ | .error { color: config('gradients.red-dark') }
+ |
+ */
+
+  gradients: gradients,
 
 
   /*
@@ -918,6 +961,7 @@ module.exports = {
     float: ['responsive'],
     fonts: ['responsive'],
     fontWeights: ['responsive', 'hover'],
+    gradients: ['hover'],
     height: ['responsive'],
     leading: ['responsive'],
     lists: ['responsive'],
@@ -963,7 +1007,8 @@ module.exports = {
   */
 
   plugins: [
-    require('./tailwind/plugins/extraBorderUtilities')
+    require('./tailwind/plugins/extraBorderUtilities'),
+    require('./tailwind/plugins/gradients')
   ],
 
 
