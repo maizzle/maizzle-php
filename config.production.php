@@ -56,11 +56,9 @@ return [
                 ],
                 'uglifyClassNames' => true,
             ],
-            'preferAttributeWidth' => [
-                'table' => true,
-                'td' => true,
-                'th' => true,
-                'img' => true,
+            'keepOnlyAttributeSizes' => [
+                'width' => ['TABLE', 'TD', 'TH', 'IMG', 'VIDEO'],
+                'height' => ['TABLE', 'TD', 'TH', 'IMG', 'VIDEO'],
             ],
             'preferBgColorAttribute' => true,
         ],
