@@ -28,6 +28,12 @@ return [
         'baseImageURL' => '',
         'inlineCSS' => [
             'enabled' => true,
+            'styleToAttribute' => [
+                'background-color' => 'bgcolor',
+                'background-image' => 'background',
+                'text-align' => 'align',
+                'vertical-align' => 'valign'
+            ],
         ],
         'cleanup' => [
             'removeUnusedCss' => [

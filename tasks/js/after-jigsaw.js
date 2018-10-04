@@ -24,7 +24,7 @@ module.exports.processEmails = (config) => {
 
     if (transformers.inlineCSS.enabled) {
       if (transformers.inlineCSS.styleToAttribute) {
-        juice.styleToAttribute = transformers.inlineCSS.styleToAttribute.rules ? transformers.inlineCSS.styleToAttribute.rules : juice.styleToAttribute;
+        juice.styleToAttribute = transformers.inlineCSS.styleToAttribute || juice.styleToAttribute;
       }
 
       if (transformers.inlineCSS.codeBlocks) {
