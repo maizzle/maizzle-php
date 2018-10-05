@@ -1,3 +1,7 @@
+.mso-leading-exactly {
+  mso-line-height-rule: exactly;
+}
+
 @responsive {
   .table-row-group {
     display: table-row-group;
