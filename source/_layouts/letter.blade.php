@@ -7,7 +7,7 @@
   <meta name="x-apple-disable-message-reformatting">
   @if($page->title)<title>{{ $page->title }}</title>@endif
 
-  @if($page->googleFonts)
+  @if(is_object($page->googleFonts) && $page->googleFonts->isNotEmpty())
   <!--[if !mso]><!--><link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ $page->googleFontsString() }}"><!--<![endif]-->
   @endif
 
