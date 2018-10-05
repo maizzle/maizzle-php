@@ -17,7 +17,6 @@ module.exports.processEmails = (config) => {
   let minifyOpts = transformers.minify;
   let cleanupOpts = transformers.cleanup;
   let files = glob.sync([config.build.destination + '/**/*.html']);
-  let extraCss = fs.readFileSync('source/css/extra.css', 'utf8');
   let removeStyleTags = typeof inlineOpts.removeStyleTags !== 'undefined' ? inlineOpts.removeStyleTags : true;
 
   files.map((file) => {
@@ -58,9 +57,6 @@ module.exports.processEmails = (config) => {
     }
 
     let $ = cheerio.load(html, {decodeEntities: false});
-
-    let style = $('style').first();
-    style.html(extraCss + style.text());
 
     if (cleanupOpts.keepOnlyAttributeSizes) {
       Object.entries(cleanupOpts.keepOnlyAttributeSizes).map(([k, v]) => {
