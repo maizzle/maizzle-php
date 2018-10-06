@@ -1,7 +1,6 @@
 @import "tailwindcss/components";
 
 @import "partials/reset";
-@import "partials/responsive";
 @import "custom-utilities";
 
 @import "tailwindcss/utilities";

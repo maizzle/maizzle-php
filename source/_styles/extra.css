@@ -5,3 +5,7 @@
 a[x-apple-data-detectors] {
   @apply text-inherit no-underline;
 }
+
+@screen sm {
+  u ~ div .wrapper {min-width: 100vw;}
+}
