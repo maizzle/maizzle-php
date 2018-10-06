@@ -33,6 +33,7 @@ View the full documentation at https://tailwindcss.com.
 
 let colors = {
   'transparent': 'transparent',
+  'inherit': 'inherit',
 
   'black': '#22292f',
   'grey-darkest': '#3d4852',
@@ -1024,5 +1025,9 @@ module.exports = {
     important: true,
     separator: '-',
   },
+
+  experiments: {
+    shadowLookup: true
+  }
 
 }

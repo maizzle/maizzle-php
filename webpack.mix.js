@@ -2,6 +2,8 @@ let mix = require('laravel-mix');
 let argv = require('yargs').argv;
 let tailwind = require('tailwindcss');
 let build = require('./tasks/js/build.js');
+let atImport = require('postcss-import');
+let mergeLonghand = require('postcss-merge-longhand');
 require('laravel-mix-purgecss');
 
 let env = argv.e || argv.env || 'local';
@@ -12,16 +14,16 @@ mix.webpackConfig({
   plugins: [
     build.jigsaw,
     build.browserSync(),
-    build.watch(['source/**/*.md', 'source/**/*.php', 'source/**/*.scss', '!source/**/_tmp/*']),
+    build.watch(['source/**/*.md', 'source/**/*.php', 'source/_styles/**/*.css', '!source/**/_tmp/*']),
   ]
 });
 
 mix.options({
     processCssUrls: false,
     postCss: [
-      require('postcss-import'),
+      atImport(),
       tailwind('tailwind.js'),
-      require('postcss-merge-longhand'),
+      mergeLonghand(),
     ]
   })
   .postCss('source/_styles/extra.css', 'extra.css')
