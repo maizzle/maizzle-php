@@ -1,6 +1,6 @@
 @import "tailwindcss/components";
 
 @import "partials/reset";
-@import "custom-utilities";
+@import "partials/custom-utilities";
 
 @import "tailwindcss/utilities";
