@@ -5,17 +5,18 @@
 
   td, th {
     box-sizing: border-box;
+    @apply font-sans;
   }
 }
 
 body {
-  @apply m-0 p-0 w-full;
   box-sizing: border-box;
+  @apply m-0 p-0 w-full;
   word-break: break-word;
   -webkit-font-smoothing: antialiased;
 }
 
 img {
-  @apply leading-full align-middle;
   border: 0;
+  @apply leading-full align-middle;
 }

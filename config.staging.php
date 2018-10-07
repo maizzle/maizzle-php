@@ -3,14 +3,14 @@
 /*
 
 |-------------------------------------------------------------------------------
-| The staging config              http://jigsaw.tighten.co/docs/site-variables/
+| The staging config                 https://maizzle.com/docs/building/#staging
 |-------------------------------------------------------------------------------
 |
 | This array contains the default Maizzle config for staging/testing. It's
 | used when you do `npm run staging` in the command line, and it will
 | be merged on top of your default config.
 |
-| These settings are tailored for email render testing and debugging.
+| These settings are tailored to email render testing and debugging.
 | Output is similar to production, but with pretty indented code
 | and no minification.
 |
@@ -18,22 +18,21 @@
 
 return [
 
-    /*
-    |-------------------------------------------------------------------------------
-    | Transformers             https://maizzle.com/docs/configuration/#transformers
-    |-------------------------------------------------------------------------------
-    |
-    | These settings are tailored to email render testing and debugging.
-    | Output is similar to production, but with pretty indented code
-    | and no minification.
-    |
-    */
-
     'transformers' => [
         'baseImageURL' => '',
         'inlineCSS' => [
             'enabled' => true,
-            'removeStyleTags' => true,
+            'styleToAttribute' => [
+                'background-color' => 'bgcolor',
+                'background-image' => 'background',
+                'text-align' => 'align',
+                'vertical-align' => 'valign',
+            ],
+            'applySizeAttribute' => [
+                'width' => ['TABLE', 'TD', 'TH', 'IMG', 'VIDEO'],
+                'height' => ['TABLE', 'TD', 'TH', 'IMG', 'VIDEO'],
+            ],
+            'excludedProperties' => [],
         ],
         'cleanup' => [
             'removeUnusedCss' => [
@@ -49,13 +48,11 @@ return [
                     'enabled' => false,
                     'preserve' => ['if', 'endif', 'mso', 'ie'],
                 ],
-                'uglify' => false,
+                'uglifyClassNames' => false,
             ],
-            'preferAttributeWidth' => [
-                'table' => true,
-                'td' => true,
-                'th' => true,
-                'img' => true,
+            'keepOnlyAttributeSizes' => [
+                'width' => ['TABLE', 'TD', 'TH', 'IMG', 'VIDEO'],
+                'height' => ['TABLE', 'TD', 'TH', 'IMG', 'VIDEO'],
             ],
             'preferBgColorAttribute' => true,
         ],
@@ -72,14 +69,7 @@ return [
         'altText' => true,
     ],
 
-    /*
-    |-----------------------------------------------------------------------------
-    | Build defaults       https://maizzle.com/docs/configuration/#build-defaults
-    |-----------------------------------------------------------------------------
-    |
-    | Configure additional Jigsaw build settings.
-    |
-    */
+    'plaintext' => false,
 
     'baseUrl' => '',
     'production' => true,

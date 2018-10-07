@@ -1,7 +1,6 @@
 <!--[if mso]>
   <xml>
     <o:OfficeDocumentSettings>
-      <o:AllowPNG/>
       <o:PixelsPerInch>96</o:PixelsPerInch>
     </o:OfficeDocumentSettings>
   </xml>

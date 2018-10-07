@@ -27,8 +27,8 @@ bodyClasses: bg-grey-light
                   <div class="sm-py-12 sm-leading-0" style="line-height: 32px;">&zwnj;</div>
                   <table cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
-                      <th class="bg-green all-hover-bg-green-dark rounded-full" style="mso-padding-alt: 7px 64px 14px;">
-                        <a href="http://example.com" class="text-white inline-block text-base leading-full py-14 px-48 no-underline">Confirm Email</a>
+                      <th class="bg-green all-hover-bg-green-dark rounded-full" style="mso-padding-alt: 14px 48px;">
+                        <a href="http://example.com" class="block py-14 px-48 text-white text-base leading-full no-underline">Confirm Email</a>
                       </th>
                     </tr>
                   </table>
