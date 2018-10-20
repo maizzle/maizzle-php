@@ -40,6 +40,12 @@ return [
                     ".Mso*",
                     "#outlook",
                 ],
+                'backend' => [
+                  [
+                    'heads' => "{{",
+                    'tails' => "}}",
+                  ],
+                ],
                 'removeHTMLComments' => [
                     'enabled' => true,
                     'preserve' => ['if', 'endif', 'mso', 'ie'],
