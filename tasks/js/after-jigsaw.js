@@ -48,6 +48,7 @@ module.exports.processEmails = (config) => {
 
     if (cleanupOpts.removeUnusedCss.enabled) {
       html = cleanCSS(html, {
+        backend: cleanupOpts.removeUnusedCss.backend || [],
         whitelist: cleanupOpts.removeUnusedCss.whitelist || [],
         uglify: cleanupOpts.removeUnusedCss.uglifyClassNames || false,
         removeHTMLComments: cleanupOpts.removeUnusedCss.removeHTMLComments.enabled || true,
