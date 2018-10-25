@@ -17,10 +17,10 @@
 <body class="{{ $page->bodyClasses ?? '' }}">
 
   @if($page->preheader)
-  <div class="hidden text-0 leading-0">{!! $page->preheader !!}</div>
+  <div class="hidden text-0 leading-0" lang="{{ $page->language ?? 'en' }}">{!! $page->preheader !!}</div>
   @endif
 
-  <table class="wrapper w-full bg-white all-font-roboto" cellpadding="0" cellspacing="0" role="presentation">
+  <table class="wrapper w-full bg-white all-font-roboto" cellpadding="0" cellspacing="0" lang="{{ $page->language ?? 'en' }}" role="presentation">
     <tr>
       <td align="center">
         <table class="w-600 sm-w-full" cellpadding="0" cellspacing="0" role="presentation">

@@ -4,7 +4,7 @@ preheader: Please verify your email address with us
 bodyClasses: bg-grey-light
 ---
 
-<table class="wrapper w-full bg-grey-light all-font-sans" cellpadding="0" cellspacing="0" role="presentation">
+<table class="wrapper w-full bg-grey-light all-font-sans" cellpadding="0" cellspacing="0" lang="{{ $page->language ?? 'en' }}" role="presentation">
   <tr>
     <td class="sm-w-full py-48" align="center">
       <table class="w-600 sm-w-full" cellpadding="0" cellspacing="0" role="presentation">
