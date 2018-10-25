@@ -4,7 +4,7 @@ preheader: Please verify your email address with us
 bodyClasses: bg-grey-light
 ---
 
-<table class="wrapper w-full bg-grey-light" cellpadding="0" cellspacing="0" role="presentation">
+<table class="wrapper w-full bg-grey-light all-font-sans" cellpadding="0" cellspacing="0" role="presentation">
   <tr>
     <td class="sm-w-full py-48" align="center">
       <table class="w-600 sm-w-full" cellpadding="0" cellspacing="0" role="presentation">
@@ -19,7 +19,7 @@ bodyClasses: bg-grey-light
                   <table class="w-full" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
                         <td align="center" class="px-8">
-                          <h2 class="text-xl mt-0"><!--[if lte mso 15]>Hi<![endif]--><![if gte mso 16]>👋<![endif]> there, John!</h2>
+                          <h2 class="text-xl mt-0">👋 there, John!</h2>
                           <p class="m-0 text-lg text-grey-darker leading-normal">Please click the following link to confirm that john@example.com is your email address:</p>
                         </td>
                     </tr>
