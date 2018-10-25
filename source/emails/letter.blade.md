@@ -2,7 +2,7 @@
 extends: _layouts.letter
 title: Simple content-focused newsletter
 preheader: This month's words of wisdom
-googleFonts: Roboto|Open+Sans
+googleFonts: ['Roboto', 'Open+Sans']
 headline: This is an example of using layouts as templates in Maizzle, to only write emails in Markdown
 ---
 
