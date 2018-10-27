@@ -6,7 +6,7 @@ googleFonts: ['Roboto', 'Open+Sans']
 headline: This is an example of using layouts as templates in Maizzle, to only write emails in Markdown
 ---
 
-<a href="https://maizzle.com/docs/" class="text-teal no-underline all-hover-text-teal-light">SEE THE DOCS &rarr;</a>
+[SEE THE DOCS &rarr;](https://maizzle.com/docs/) {.text-teal .no-underline .hover-text-teal-light}
 
 **But, why?**
 Good question. This is useful if your email focuses on text content, and if your layout doesn't need to change much.
