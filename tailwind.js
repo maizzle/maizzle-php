@@ -946,6 +946,7 @@ module.exports = {
     backgroundPosition: ['responsive'],
     backgroundRepeat: ['responsive'],
     backgroundSize: ['responsive'],
+    borderCollapse: [],
     borderColors: ['responsive', 'hover'],
     borderRadius: ['responsive', 'hover'],
     borderStyle: ['responsive', 'hover'],
@@ -1024,10 +1025,6 @@ module.exports = {
     prefix: '',
     important: true,
     separator: '-',
-  },
-
-  experiments: {
-    shadowLookup: true
   }
 
 }
