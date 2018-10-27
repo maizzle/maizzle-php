@@ -946,6 +946,7 @@ module.exports = {
     backgroundPosition: ['responsive'],
     backgroundRepeat: ['responsive'],
     backgroundSize: ['responsive'],
+    borderCollapse: [],
     borderColors: ['responsive', 'hover'],
     borderRadius: ['responsive', 'hover'],
     borderStyle: ['responsive', 'hover'],
@@ -956,7 +957,7 @@ module.exports = {
     float: ['responsive'],
     fonts: ['responsive'],
     fontWeights: ['responsive', 'hover'],
-    gradients: ['responsive', 'hover'],
+    gradients: ['hover'],
     height: ['responsive'],
     leading: ['responsive'],
     lists: ['responsive'],
@@ -1024,10 +1025,6 @@ module.exports = {
     prefix: '',
     important: true,
     separator: '-',
-  },
-
-  experiments: {
-    shadowLookup: true
   }
 
 }

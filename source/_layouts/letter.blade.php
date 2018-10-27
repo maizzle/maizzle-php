@@ -17,10 +17,10 @@
 <body class="{{ $page->bodyClasses ?? '' }}">
 
   @if($page->preheader)
-  <div class="hidden text-0 leading-0">{!! $page->preheader !!}</div>
+  <div class="hidden text-0 leading-0" lang="{{ $page->language ?? 'en' }}">{!! $page->preheader !!}</div>
   @endif
 
-  <table class="wrapper w-full bg-white" cellpadding="0" cellspacing="0" role="presentation">
+  <table class="wrapper w-full bg-white all-font-roboto" cellpadding="0" cellspacing="0" lang="{{ $page->language ?? 'en' }}" role="presentation">
     <tr>
       <td align="center">
         <table class="w-600 sm-w-full" cellpadding="0" cellspacing="0" role="presentation">
@@ -32,28 +32,28 @@
                     <img src="img/maizzle.png" alt="Maizzle" class="w-64">
                   </td>
                   <td class="w-1-2 sm-inline-block sm-w-full text-right sm-text-center text-sm">
-                    <a href="https://maizzle.com" class="text-grey no-underline all-hover-text-grey-dark">Features</a>
+                    <a href="https://maizzle.com" class="text-grey no-underline hover-text-grey-dark">Features</a>
                     <span class="text-grey">&bull;</span>
-                    <a href="https://maizzle.com/docs/" class="text-grey no-underline all-hover-text-grey-dark">Docs</a>
+                    <a href="https://maizzle.com/docs/" class="text-grey no-underline hover-text-grey-dark">Docs</a>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
           <tr>
-            <td class="px-48 sm-px-16 font-open-sans">
+            <td align="left" class="px-48 sm-px-16">
               @if($page->headline)
-              <h1 class="text-2xl leading-32 all-font-roboto">{{ $page->headline }}</h1>
+              <h1 class="text-2xl leading-32">{{ $page->headline }}</h1>
               @endif
 
-              <div class="text-base leading-32">
+              <div class="text-base leading-32 all-font-open-sans">
                 @yield('content')
               </div>
             </td>
           </tr>
           <tr>
             <td class="text-center py-16">
-              <h3 class="text-xl mt-0"><![if gte mso 16]>👋<![endif]></h3>
+              <h3 class="text-xl mt-0">👋</h3>
             </td>
           </tr>
           <tr>
@@ -77,7 +77,6 @@
       </td>
     </tr>
   </table>
-
 
 </body>
 </html>
