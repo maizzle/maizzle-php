@@ -32,9 +32,9 @@
                     <img src="img/maizzle.png" alt="Maizzle" class="w-64">
                   </td>
                   <td class="w-1-2 sm-inline-block sm-w-full text-right sm-text-center text-sm">
-                    <a href="https://maizzle.com" class="text-grey no-underline all-hover-text-grey-dark">Features</a>
+                    <a href="https://maizzle.com" class="text-grey no-underline hover-text-grey-dark">Features</a>
                     <span class="text-grey">&bull;</span>
-                    <a href="https://maizzle.com/docs/" class="text-grey no-underline all-hover-text-grey-dark">Docs</a>
+                    <a href="https://maizzle.com/docs/" class="text-grey no-underline hover-text-grey-dark">Docs</a>
                   </td>
                 </tr>
               </table>

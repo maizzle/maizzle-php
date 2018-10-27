@@ -956,7 +956,7 @@ module.exports = {
     float: ['responsive'],
     fonts: ['responsive'],
     fontWeights: ['responsive', 'hover'],
-    gradients: ['responsive', 'hover'],
+    gradients: ['hover'],
     height: ['responsive'],
     leading: ['responsive'],
     lists: ['responsive'],
