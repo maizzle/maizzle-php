@@ -67,20 +67,18 @@ if (puppeteer) {
 
   (async () => {
     let timestamp = Date.now();
+    let html = fs.readFileSync(path.join(process.cwd(), args.file), 'utf8');
     let devices = await requireg('puppeteer/DeviceDescriptors');
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
-    await page.goto( path.join(process.cwd(), args.file) );
+    await page.goto( `data:text/html,${html}`, {waitUntil: 'networkidle0'} );
 
     for (let device of config.screenshots.devices) {
       if (!devices[device]) {
         console.log(device, 'is not a valid Puppeteer device descriptor. Skipping...');
       } else {
         console.log('Processing', device, 'screenshot...');
-        let outputFilePath = path.join(
-                              outputFolder,
-                              slugify(path.basename(args.file , '.html') + ' ' + device + ' ' + timestamp, {lower: true}) + '.' + config.screenshots.type || 'png'
-                            )
+
         await page.emulate(devices[device]);
 
         // dumb workaround because you can't have 'quality' if using png screenshots
