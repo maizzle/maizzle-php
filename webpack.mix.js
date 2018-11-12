@@ -2,8 +2,6 @@ let mix = require('laravel-mix');
 let argv = require('yargs').argv;
 let tailwind = require('tailwindcss');
 let build = require('./tasks/js/build.js');
-let atImport = require('postcss-import');
-let mergeLonghand = require('postcss-merge-longhand');
 require('laravel-mix-purgecss');
 
 let env = argv.e || argv.env || 'local';
@@ -21,9 +19,10 @@ mix.webpackConfig({
 mix.options({
     processCssUrls: false,
     postCss: [
-      atImport(),
+      require('postcss-import'),
       tailwind('tailwind.js'),
-      mergeLonghand(),
+      require("css-mqpacker"),
+      require('postcss-merge-longhand'),
     ]
   })
   .postCss('source/_styles/extra.css', 'extra.css')

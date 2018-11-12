@@ -24,9 +24,7 @@ View the full documentation at https://maizzle.com/docs
 return [
 
     'collections' => [
-        'test-collection' => [
-            'path' => 'test-collection/{filename}',
-        ],
+        'emails' => [],
     ],
 
     /*

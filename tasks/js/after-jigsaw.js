@@ -1,5 +1,4 @@
 let fs = require('fs');
-let glob = require('glob-all');
 let juice = require('juice');
 let cheerio = require('cheerio');
 let isURL = require('is-url');
@@ -9,53 +8,62 @@ let minify = require('html-minifier').minify;
 let sixHex = require('color-shorthand-hex-to-six-digit');
 let altText = require('html-img-alt');
 let stripHtml = require("string-strip-html");
+let argv = require('yargs').argv;
 
-module.exports.processEmails = (config) => {
+let collection = JSON.parse(argv.collection) || undefined;
+let config = JSON.parse(argv.config) || undefined;
 
-  let transformers = config.transformers;
+if (!collection || !config) {
+  console.log('Incomplete data passed to Node script:');
+  console.log('collection is', collection, 'config is', config);
+}
+
+// fs.writeFileSync(config.build.destination + '/collection.json', argv.collection);
+
+Object.entries(collection).forEach(([key, value]) => {
+
+  let transformers = value.transformers;
   let inlineOpts = transformers.inlineCSS;
   let minifyOpts = transformers.minify;
   let cleanupOpts = transformers.cleanup;
-  let files = glob.sync([config.build.destination + '/**/*.html']);
+  let baseImageURL = transformers.baseImageURL;
   let removeStyleTags = typeof inlineOpts.removeStyleTags !== 'undefined' ? inlineOpts.removeStyleTags : true;
 
-  files.map((file) => {
+  let file = value.build.destination + (value.permalink ? '/' + value.permalink : value._meta.path[0] + (config.pretty ? '/' + 'index.html' : '.html'));
+  let html = fs.readFileSync(file, 'utf8');
 
-    let html = fs.readFileSync(file, 'utf8');
-
-    if (inlineOpts.enabled) {
-      if (inlineOpts.styleToAttribute) {
-        juice.styleToAttribute = inlineOpts.styleToAttribute || juice.styleToAttribute;
-      }
-
-      if (inlineOpts.applySizeAttribute) {
-        juice.widthElements = inlineOpts.applySizeAttribute.width || juice.widthElements;
-        juice.heightElements = inlineOpts.applySizeAttribute.height || juice.heightElements;
-      }
-
-      if (inlineOpts.excludedProperties) {
-        juice.excludedProperties = inlineOpts.excludedProperties || juice.excludedProperties;
-      }
-
-      if (inlineOpts.codeBlocks) {
-        Object.entries(inlineOpts.codeBlocks).forEach(
-            ([k, v]) => juice.codeBlocks[k] = v
-        );
-      }
-
-      html = juice(html, {removeStyleTags: removeStyleTags});
+  if (inlineOpts.enabled) {
+    if (inlineOpts.styleToAttribute) {
+      juice.styleToAttribute = inlineOpts.styleToAttribute || juice.styleToAttribute;
     }
 
-    if (cleanupOpts.removeUnusedCss.enabled) {
-      html = cleanCSS(html, {
-        backend: cleanupOpts.removeUnusedCss.backend || [],
-        whitelist: cleanupOpts.removeUnusedCss.whitelist || [],
-        uglify: cleanupOpts.removeUnusedCss.uglifyClassNames || false,
-        removeHTMLComments: cleanupOpts.removeUnusedCss.removeHTMLComments.enabled || true,
-        doNotRemoveHTMLCommentsWhoseOpeningTagContains: cleanupOpts.removeUnusedCss.removeHTMLComments.preserve || ['if', 'endif', 'mso', 'ie'],
-        }
-      ).result;
+    if (inlineOpts.applySizeAttribute) {
+      juice.widthElements = inlineOpts.applySizeAttribute.width || juice.widthElements;
+      juice.heightElements = inlineOpts.applySizeAttribute.height || juice.heightElements;
     }
+
+    if (inlineOpts.excludedProperties) {
+      juice.excludedProperties = inlineOpts.excludedProperties || juice.excludedProperties;
+    }
+
+    if (inlineOpts.codeBlocks) {
+      Object.entries(inlineOpts.codeBlocks).forEach(
+          ([k, v]) => juice.codeBlocks[k] = v
+      );
+    }
+
+    html = juice(html, {removeStyleTags: removeStyleTags});
+  }
+
+  if (cleanupOpts.removeUnusedCss.enabled) {
+    html = cleanCSS(html, {
+      backend: cleanupOpts.removeUnusedCss.backend || [],
+      whitelist: cleanupOpts.removeUnusedCss.whitelist || [],
+      uglify: cleanupOpts.removeUnusedCss.uglifyClassNames || false,
+      removeHTMLComments: cleanupOpts.removeUnusedCss.removeHTMLComments.enabled || true,
+      doNotRemoveHTMLCommentsWhoseOpeningTagContains: cleanupOpts.removeUnusedCss.removeHTMLComments.preserve || ['if', 'endif', 'mso', 'ie'],
+      }
+    ).result;
 
     let $ = cheerio.load(html, {decodeEntities: false});
 
@@ -76,54 +84,53 @@ module.exports.processEmails = (config) => {
     }
 
     html = $.html();
+  }
 
-    let baseImageURL = transformers.baseImageURL;
-    if (isURL(baseImageURL)) {
-      html = html.replace(/src=("|')([^("|')]*)("|')/gim, 'src="' + baseImageURL + '$2"')
-                  .replace(/background=("|')([^("|')]*)("|')/gim, 'background="' + baseImageURL + '$2"')
-                  .replace(/background(-image)?:\s?url\(("|')?([^("|')]*)("|')?\)/gim, "url('" + baseImageURL + "$3')");
-    }
+  if (isURL(baseImageURL)) {
+    html = html.replace(/src=("|')([^("|')]*)("|')/gim, 'src="' + baseImageURL + '$2"')
+                .replace(/background=("|')([^("|')]*)("|')/gim, 'background="' + baseImageURL + '$2"')
+                .replace(/background(-image)?:\s?url\(("|')?([^("|')]*)("|')?\)/gim, "url('" + baseImageURL + "$3')");
+  }
 
-    if (transformers.prettify) {
-      html = pretty(html, {ocd: true, indent_inner_html: false});
-    }
+  if (transformers.prettify) {
+    html = pretty(html, {ocd: true, indent_inner_html: false});
+  }
 
-    html = minify(html, {
-      html5: false,
-      keepClosingSlash: true,
-      removeEmptyAttributes: true,
-      includeAutoGeneratedTags: false,
-      minifyCSS: minifyOpts.minifyCSS,
-      maxLineLength: minifyOpts.maxLineLength,
-      collapseWhitespace: minifyOpts.collapseWhitespace,
-      preserveLineBreaks: minifyOpts.preserveLineBreaks,
-      conservativeCollapse: minifyOpts.conservativeCollapse,
-      processConditionalComments: minifyOpts.processConditionalComments
-    });
-
-    if (transformers.sixHex) {
-      html = sixHex(html);
-    }
-
-    if (transformers.altText) {
-      html = altText(html);
-    }
-
-    fs.writeFileSync(file, html);
-
-    if (config.plaintext) {
-      let plaintext = stripHtml(html, {
-                        dumpLinkHrefsNearby: {
-                          enabled: true,
-                          putOnNewLine: true,
-                          wrapHeads: '[',
-                          wrapTails: ']',
-                        }
-                      });
-
-      let plaintextPath = file.replace(/(\.blade\.php|\.html)/, '.txt');
-
-      fs.writeFileSync(plaintextPath, plaintext);
-    }
+  html = minify(html, {
+    html5: false,
+    keepClosingSlash: true,
+    removeEmptyAttributes: true,
+    includeAutoGeneratedTags: false,
+    minifyCSS: minifyOpts.minifyCSS,
+    maxLineLength: minifyOpts.maxLineLength,
+    collapseWhitespace: minifyOpts.collapseWhitespace,
+    preserveLineBreaks: minifyOpts.preserveLineBreaks,
+    conservativeCollapse: minifyOpts.conservativeCollapse,
+    processConditionalComments: minifyOpts.processConditionalComments
   });
-}
+
+  if (transformers.sixHex) {
+    html = sixHex(html);
+  }
+
+  if (transformers.altText) {
+    html = altText(html);
+  }
+
+  fs.writeFileSync(file, html);
+
+  if (value.plaintext) {
+    let plaintext = stripHtml(html, {
+                      dumpLinkHrefsNearby: {
+                        enabled: true,
+                        putOnNewLine: true,
+                        wrapHeads: '[',
+                        wrapTails: ']',
+                      }
+                    });
+
+    let plaintextPath = file.replace(/(\.blade\.php|\.html)/, '.txt');
+
+    fs.writeFileSync(plaintextPath, plaintext);
+  }
+});

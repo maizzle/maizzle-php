@@ -29,7 +29,7 @@
               <table class="w-full" cellpadding="0" cellspacing="0" role="presentation">
                 <tr>
                   <td class="w-1-2 sm-inline-block sm-w-full sm-text-center sm-pb-16">
-                    <img src="img/maizzle.png" alt="Maizzle" class="w-64">
+                    <img src="/img/maizzle.png" alt="Maizzle" class="w-64">
                   </td>
                   <td class="w-1-2 sm-inline-block sm-w-full text-right sm-text-center text-sm">
                     <a href="https://maizzle.com" class="text-grey no-underline hover-text-grey-dark">Features</a>

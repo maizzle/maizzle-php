@@ -71,7 +71,7 @@ return [
         'altText' => true,
     ],
 
-    'plaintext' => true,
+    'plaintext' => false,
 
     'baseUrl' => '',
     'production' => true,
