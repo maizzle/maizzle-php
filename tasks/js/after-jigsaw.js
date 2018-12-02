@@ -97,8 +97,7 @@ module.exports.processEmails = (config) => {
       maxLineLength: minifyOpts.maxLineLength,
       collapseWhitespace: minifyOpts.collapseWhitespace,
       preserveLineBreaks: minifyOpts.preserveLineBreaks,
-      conservativeCollapse: minifyOpts.conservativeCollapse,
-      processConditionalComments: minifyOpts.processConditionalComments
+      conservativeCollapse: minifyOpts.conservativeCollapse
     });
 
     if (transformers.sixHex) {
