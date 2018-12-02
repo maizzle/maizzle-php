@@ -3,6 +3,7 @@ let argv = require('yargs').argv;
 let tailwind = require('tailwindcss');
 let build = require('./tasks/js/build.js');
 let atImport = require('postcss-import');
+let mqpacker = require('css-mqpacker');
 let mergeLonghand = require('postcss-merge-longhand');
 require('laravel-mix-purgecss');
 
@@ -23,6 +24,7 @@ mix.options({
     postCss: [
       atImport(),
       tailwind('tailwind.js'),
+      mqpacker(),
       mergeLonghand(),
     ]
   })
