@@ -215,7 +215,6 @@ return [
             'preserveLineBreaks' => false,
             'collapseWhitespace' => false,
             'conservativeCollapse' => false,
-            'processConditionalComments' => false,
         ],
         'sixHex' => false,
         'altText' => false,
