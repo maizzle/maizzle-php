@@ -1003,7 +1003,6 @@ module.exports = {
   */
 
   plugins: [
-    // require('./tailwind/plugins/extraBorderUtilities'),
     require('./tailwind/plugins/gradients'),
   ],
 
