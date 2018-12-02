@@ -15,7 +15,7 @@
     "browser-sync-webpack-plugin": "2.2.2",
     "color-shorthand-hex-to-six-digit": "2.1.1",
     "cross-env": "3.2.4",
-    "css-mqpacker": "6.0.2",
+    "css-mqpacker": "7.0.0",
     "email-remove-unused-css": "4.5.0",
     "glob-all": "3.1.0",
     "hasbin": "1.2.3",
