@@ -69,9 +69,10 @@ if (puppeteer) {
     let timestamp = Date.now();
     let html = fs.readFileSync(path.join(process.cwd(), args.file), 'utf8');
     let devices = await requireg('puppeteer/DeviceDescriptors');
-    let browser = await puppeteer.launch();
+    let browser = await puppeteer.launch({headless: true});
+    let filepath = `file://${process.cwd()}/`+args.file;
     let page = await browser.newPage();
-    await page.goto( `data:text/html,${html}`, {waitUntil: 'networkidle0'} );
+    await page.goto( filepath, {waitUntil: 'networkidle0'} );
 
     for (let device of config.screenshots.devices) {
       if (!devices[device]) {
