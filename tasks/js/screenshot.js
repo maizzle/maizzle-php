@@ -67,7 +67,6 @@ if (puppeteer) {
 
   (async () => {
     let timestamp = Date.now();
-    let html = fs.readFileSync(path.join(process.cwd(), args.file), 'utf8');
     let devices = await requireg('puppeteer/DeviceDescriptors');
     let browser = await puppeteer.launch({headless: true});
     let filepath = `file://${process.cwd()}/`+args.file;
