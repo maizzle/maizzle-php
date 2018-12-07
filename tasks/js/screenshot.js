@@ -71,7 +71,7 @@ if (puppeteer) {
     let browser = await puppeteer.launch({headless: true});
     let filepath = `file://${process.cwd()}/` + args.file;
     let page = await browser.newPage();
-    await page.goto( filepath, {waitUntil: 'networkidle0'} );
+    await page.goto(filepath, {waitUntil: 'networkidle0'});
 
     for (let device of config.screenshots.devices) {
       if (!devices[device]) {
