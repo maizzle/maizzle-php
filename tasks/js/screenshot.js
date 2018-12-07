@@ -69,7 +69,7 @@ if (puppeteer) {
     let timestamp = Date.now();
     let devices = await requireg('puppeteer/DeviceDescriptors');
     let browser = await puppeteer.launch({headless: true});
-    let filepath = `file://${process.cwd()}/`+args.file;
+    let filepath = `file://${process.cwd()}/` + args.file;
     let page = await browser.newPage();
     await page.goto( filepath, {waitUntil: 'networkidle0'} );
 
