@@ -1,19 +1,20 @@
 <p align="center">
-    <a href="https://maizzle.com/" target="_blank">
-        <img width="250" src="https://maizzle.com/img/maizzle.svg" alt="Maizzle"></a>
+    <strong>Maizzle PHP</strong>
     <br>
-    The framework for rapid email development.
+    Build system for rapid email development.
+    <br><br>
+    <img src="https://img.shields.io/github/release/maizzle/maizzle-php.svg?label=version">
 </p>
 
 ------
 
-Maizzle is an email framework made for developers. It brings together open source tools such as Jigsaw and Tailwind CSS, to create a solid workflow for HTML email development.
+Maizzle PHP is an email build system made for developers. It brings together open source tools such as Jigsaw and Tailwind CSS, to create a solid workflow for HTML email development.
 
 Whether you're an email or web developer, you can use Maizzle to build your HTML emails fast and be in full control over your email development workflow.
 
 ## Getting Started
 
-Full documentation is available at [maizzle.com](https://maizzle.com/).
+Documentation is available in the [Wiki](https://github.com/maizzle/maizzle-php/wiki/Introduction).
 
 ## Features
 
